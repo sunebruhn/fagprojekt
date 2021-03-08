@@ -1,1 +1,92 @@
-<mxfile host="Electron" modified="2021-02-17T19:23:17.714Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/14.1.8 Chrome/87.0.4280.88 Electron/11.1.1 Safari/537.36" etag="acTe11JMHXCHzP5ynvBW" version="14.1.8" type="device"><diagram id="gbPo8Uz2tqgcRO2pYFGg" name="Page-1">3VrZcqM4FP0aV808JAXC62PsZNKpSqYzlepK/CiDgjUtEC2El3z9SCAMSKahvYWeF1u6WhDnHl0dSfScWbC5ZzBaPlEPkR6wvE3Pue0BMB6Oxa80bDPDwLYyg8+wl5nswvCCP5Ay5tUS7KG4UpFTSjiOqkaXhiFyecUGGaPrarV3SqpPjaCPDMOLC4lpfcUeX6rXAqPC/gVhf5k/2R5OspIA5pXVm8RL6NF1yeTc9ZwZo5RnqWAzQ0Ril+OStfurpnQ3MIZC3qZB+PD16u3H4u0DPMZePL8bXY37V/2slxUkiXphNVi+zRFAoXcjgRQ5l8A4xm7PmS55QITBFklzHGpoyKtAq0Z1j2iAONuKCgwRyPGqijRUDvN39XZNnykWjwCW4lYOrGIWGFrVHmKaMBepRmVgtH7sfkNHHDIfcaMjkSi9TmFKcf8FHwwMHzxBHMYSVLpGzHSIwPURLsQ8c6YMxfgDLtIiq+oXSLAfSqcJv4henOkKMY4Fs29UQYA9Tzbc48GfcUXNNPXQgt+ye7Q5jcMrEP8qnkMDz+cMRzn0dJQmpowmoYc8heJ6iTl6iaArS9cirrVkfAsI6jjnqPy6CDK2pWzLUoDRuXky1PKAW6YhdhkVmHFGCekAaI5TBc3+fNBsA7RbJgjePaw6QDDHwOpbvAcpsU5GMpkE5MbltBy50qj3TGPMMZURbEE5p8Ge0MaphihNOMEhmu1UgnUamIf25HpQAXoPzs5FYTaX9Fe0kK3kMvAuKdc1bn4+Nc0luAeGRDx26uGVSPppEq2wRC8rEA8qldWyOBIRFMVxM64L6H73U098zbiq7IxyqOg+ORFpB0OdtH0rN5R8MNjjAjA4lwvMVfsVv+N00Q6CJBSzO0WhlTqNhWLjPxWtaIP5Wyk9l+QXGGS5242aC2lm2xQuMqHZYk42KuIG9HPbkcK5P67Ov7Hm1LbCeaD1c2HdbI/NxXcm3ZFEEdm2Y8qRlBBMYNu3cqbUSmaLZmnueCqpaZJB20KZdIRyzkSTI32NK20519eEsz25MOkmFyAd+G1ZZ3Wbdc6pWDe+LOuAuc/YI1D2L5it5MqRy2gRJ+dlwjawtyDsPO/vLOzNWdlM346t0/ohATiUvto8sEft6Ct8D7elapGsEJ+F4ObmcJYdPEgHi00dlIk/Xp4fxB+VZzkPYPbnweG2ylf7IL5aHeBrtxb5vn7mYB/KV01Y2hdWlsDcQ38RnQpLiPiasu8SK5p04SBxMKru5D7/TAyYm+lsYTrxknOITLd7FxJMOYN+O8WkzTxgHTqF9bPawYWncN15wqmFD2ivfI6n0/+NJUOr2tH5ZPXqx7/08fYfMh8tXXj/d+Bv3YcrUC86On94oFHhQKXxuXpB8z7Q9/KtD6KaroLPzCNTvD7eiV/rCXKGNwaZ6q4zdheytTe1JcblB8zBxpcfXlwvoCDldZyI+lOidby7AjbuhGvkxh421SsQ4wpkp/uaNIitx40WIkRki28mMgcWH544d/8B</diagram></mxfile>
+<mxfile host="65bd71144e" modified="2021-03-04T16:22:07.809Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="3f7b4BHhdgcATdYj64GZ" version="14.2.4" type="embed">
+    <diagram id="gbPo8Uz2tqgcRO2pYFGg" name="Page-1">
+        <mxGraphModel dx="564" dy="478" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-4" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="20" y="260" as="sourcePoint"/>
+                        <mxPoint x="140" y="260" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-5" value="Mains power" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" parent="nIO-XqbXz2LsdsYE7-84-4" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-6" value="Power converter" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="230" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-10" value="Microcontroller" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="130" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-11" value="LED cotrol circuit" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="230" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-13" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="619.5" y="30" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-14" value="Web interface" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="30" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-15" value="&lt;div&gt;device&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rotation=90;" parent="1" vertex="1">
+                    <mxGeometry x="569.5" y="40.5" width="50" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-16" value="Wifi communication" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="nIO-XqbXz2LsdsYE7-84-14" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="480" y="85" as="sourcePoint"/>
+                        <mxPoint x="580" y="60" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-18" value="DC supply" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="nIO-XqbXz2LsdsYE7-84-6" target="nIO-XqbXz2LsdsYE7-84-11" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="390" y="240" as="sourcePoint"/>
+                        <mxPoint x="440" y="190" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-19" value="DC supply" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="nIO-XqbXz2LsdsYE7-84-6" target="nIO-XqbXz2LsdsYE7-84-10" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="390" y="230" as="sourcePoint"/>
+                        <mxPoint x="440" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-21" value="&lt;div&gt;Wifi communication&lt;/div&gt;" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="nIO-XqbXz2LsdsYE7-84-10" target="nIO-XqbXz2LsdsYE7-84-14" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="440" y="220" as="sourcePoint"/>
+                        <mxPoint x="490" y="170" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-23" value="Control signal)" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="nIO-XqbXz2LsdsYE7-84-10" target="nIO-XqbXz2LsdsYE7-84-11" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="430" y="210" as="sourcePoint"/>
+                        <mxPoint x="480" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-24" value="Home network router" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="575" y="130" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-25" value="Wifi" style="endArrow=classic;startArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="nIO-XqbXz2LsdsYE7-84-24" target="nIO-XqbXz2LsdsYE7-84-10" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="380" y="200" as="sourcePoint"/>
+                        <mxPoint x="430" y="150" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="nIO-XqbXz2LsdsYE7-84-26" value="Wifi" style="endArrow=classic;startArrow=classic;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="nIO-XqbXz2LsdsYE7-84-24" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="380" y="200" as="sourcePoint"/>
+                        <mxPoint x="600" y="80" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="vqjoLDQlY7hcaGNmgycI-2" value="Control" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="nIO-XqbXz2LsdsYE7-84-11" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="400" y="290" as="sourcePoint"/>
+                        <mxPoint x="520" y="260" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="vqjoLDQlY7hcaGNmgycI-3" value="LED Matrix" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.sun;labelPosition=center;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="519.5" y="210" width="100" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
