@@ -59,13 +59,13 @@ String readFileCode(fs::FS &fs, const char * path, const char * code){
 }
 */
 
-String readFile(fs::FS &fs, const char * path){
+const char * readFile(fs::FS &fs, const char * path){
   Serial.printf("Reading file: %s\r\n", path);
 
   File file = fs.open(path, "r");
   if(!file || file.isDirectory()){
     Serial.println("- empty file or failed to open file");
-    return String();
+    return {};
   }
 
   Serial.println("- read from file:");
@@ -74,7 +74,8 @@ String readFile(fs::FS &fs, const char * path){
     fileContent+=String((char)file.read());
   }
   Serial.println(fileContent);
-  return fileContent;
+  const char * data = fileContent.c_str();
+  return data;
 }
 
 void writeFile(fs::FS &fs, const char * path, const char * message){
