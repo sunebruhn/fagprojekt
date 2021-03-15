@@ -4,6 +4,7 @@
 #include <SPIFFS.h>
 #include "time.h"
 #include "files.h"
+#include "webprotocols.h"
 
 //  Definitions and globals
 
@@ -31,10 +32,10 @@ void setup() {
     return;
   }
 
-  //read from config
+  /*//read from config
   if(!checkFile(SPIFFS, "/config.txt")){
     writeFile(SPIFFS, "/config.txt","test SSID: Sunet\nPassword: sunesune\n");
-  }
+  }*/
 
   //  connect to WiFi
   Serial.printf("Connecting to %s ", ssid);
@@ -47,11 +48,9 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   //  Web server protocols
-    
- /* ws.onEvent(onWsEvent);
+  ws.onEvent(onWsEvent);
   server.addHandler(&ws);
-  */
-   // Route for root / web page
+  // Route for root / web page
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/index.html");
   });

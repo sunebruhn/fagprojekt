@@ -6,9 +6,9 @@
 
 bool checkFile(fs::FS &fs, const char * path);
 
-String readFileCode(fs::FS &fs, const char * path, const char * code);
+//String readFileCode(fs::FS &fs, const char * path, const char * code);
 
-String readFile(fs::FS &fs, const char * path);
+const char * readFile(fs::FS &fs, const char * path);
 
 void writeFile(fs::FS &fs, const char * path, const char * message);
 
