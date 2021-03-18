@@ -27,7 +27,7 @@ void beginWiFi(){
       Serial.print(WIFI_RECOVER_TIME_MS / 1000);
       Serial.print(" seconds\n");
       vTaskDelay(WIFI_RECOVER_TIME_MS / portTICK_PERIOD_MS);
-    return;
+      return;
     }
 
     Serial.print("\n[WIFI] Connected: ");
@@ -44,7 +44,8 @@ void keepWiFiAlive(void * parameter){
       continue;
     }
 
-    beginWiFi();    
+    beginWiFi();  
+    vTaskDelay(10 / portTICK_PERIOD_MS);  
   }
 }
 

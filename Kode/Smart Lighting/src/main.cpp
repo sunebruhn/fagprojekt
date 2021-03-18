@@ -56,6 +56,14 @@ void setup() {
     request->send(SPIFFS, "/styles.css");
   });
 
+  server.on("/walter-regular-webfont.woff", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/walter-regular-webfont.woff");
+  });
+
+  server.on("/walter-regular-webfont.woff2", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/walter-regular-webfont.woff2");
+  });
+
   server.on("/script.js", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/script.js");
   });
