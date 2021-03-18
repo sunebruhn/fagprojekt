@@ -4,6 +4,7 @@
 #include <SPIFFS.h>
 #include "time.h"
 #include "files.h"
+#include "wifiprotocols.h"
 #include "webprotocols.h"
 
 //  Definitions and globals
@@ -37,12 +38,13 @@ void setup() {
   ws.onEvent(onWsEvent);
   server.addHandler(&ws);
 
-  xTaskCreate(handleClientConnections,      // task function
-              "Handle Client Connections",  // task name
-              1024,                         // stack size
-              (void*)&ws,                   // parameters passed
-              0,                            // priority
-              NULL);                        // handler
+  xTaskCreate(
+    handleClientConnections,      // task function
+    "Handle Client Connections",  // task name
+    1024,                         // stack size
+    (void*)&ws,                   // parameters passed
+    0,                            // priority
+    NULL);                        // handler
 
   // Route for root / web page
 

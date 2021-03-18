@@ -9,10 +9,4 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 
 void handleClientConnections(void * ws);
 
-void beginWiFi();
-
-void keepWiFiAlive(void * parameter);
-
-void setupWiFi();
-
 #endif
