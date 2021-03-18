@@ -2,7 +2,7 @@
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
-#include "time.h"
+#include <time.h>
 #include "files.h"
 #include "wifiprotocols.h"
 #include "webprotocols.h"
@@ -55,6 +55,11 @@ void setup() {
   server.on("/styles.css", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/styles.css");
   });
+
+  server.on("/script.js", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/script.js");
+  });
+
 
   server.begin();
 
