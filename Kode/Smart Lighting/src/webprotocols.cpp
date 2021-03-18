@@ -81,12 +81,16 @@ void keepWiFiAlive(void * parameter){
   
   while(1){
     if(WiFi.status() == WL_CONNECTED){
-        Serial.println("[WIFI] Succesful Check");
-        vTaskDelay(6*10000 / portTICK_PERIOD_MS); //check every minute
-        continue;
+      Serial.println("[WIFI] Succesful Check");
+      vTaskDelay(6*10000 / portTICK_PERIOD_MS); //check every minute
+      continue;
     }
 
     beginWiFi();    
+    if(WiFi.status() != WL_CONNECTED){
+      Serial.println("[WIFI] Retrying in 30 seconds");
+      vTaskDelay(3*10000 / portTICK_PERIOD_MS); //delay retry 30 seconds
+    }
   }
 }
 
