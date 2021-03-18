@@ -67,7 +67,9 @@ void beginWiFi(){
     // When we couldn't make a WiFi connection (or the timeout expired)
     // sleep for a while and then retry.
     if(WiFi.status() != WL_CONNECTED){
-        Serial.println("\n[WIFI] FAILED");
+        Serial.print("\n[WIFI] Connection failed. Retrying in ");
+        Serial.print(WIFI_RECOVER_TIME_MS / 1000);
+        Serial.print(" seconds\n");
         vTaskDelay(WIFI_RECOVER_TIME_MS / portTICK_PERIOD_MS);
     return;
     }
@@ -87,10 +89,6 @@ void keepWiFiAlive(void * parameter){
     }
 
     beginWiFi();    
-    if(WiFi.status() != WL_CONNECTED){
-      Serial.println("[WIFI] Retrying in 30 seconds");
-      vTaskDelay(3*10000 / portTICK_PERIOD_MS); //delay retry 30 seconds
-    }
   }
 }
 
