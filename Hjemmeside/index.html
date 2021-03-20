@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>LEDia</title>
     <link rel="stylesheet" href="styles.css">
+    <script type = "text/javascript" src="index.js"></script>
   </head>
 
 
@@ -22,16 +23,34 @@
 
       <!-- This is the meat of the website where all the controlpanels will be -->
       <div class="middletop">
-        <div> Click to turn on the LED </div>
-        <button class="button button1">On</button>
+        <div id = "LEDState"> The LED is currently ON </div>
+        <button class="button button1" onclick="ON()">On</button>
+        <button class="button button2" onclick="OFF()">Off</button>
       </div>
 
       <div class="middlemid">
-        <div> det her er midten af midten </div>
+        <div> The strength of the LED is <span id="LEDvalue"></span>%</div>
+        <input type="range" min="1" max="100" value="50" class="slider" id="LEDstrength">
       </div>
 
       <div class="middlebottom">
-        <div> det her er bunden af midten </div>
+        <div> Pattern customizer </div>
+        <button class="button buttonMatrix1"></button>
+        <button class="button buttonMatrix2"></button>
+        <button class="button buttonMatrix3"></button>
+        <button class="button buttonMatrix4"></button> <br>
+        <button class="button buttonMatrix5"></button>
+        <button class="button buttonMatrix6"></button>
+        <button class="button buttonMatrix7"></button>
+        <button class="button buttonMatrix8"></button> <br>
+        <button class="button buttonMatrix9"></button>
+        <button class="button buttonMatrix10"></button>
+        <button class="button buttonMatrix11"></button>
+        <button class="button buttonMatrix12"></button> <br>
+        <button class="button buttonMatrix12"></button>
+        <button class="button buttonMatrix13"></button>
+        <button class="button buttonMatrix14"></button>
+        <button class="button buttonMatrix15"></button>
       </div>
       <!-- /////////////////////////////////////////////////////////////////////// -->
 
@@ -41,8 +60,15 @@
       </div>
     </div>
 
-
-
+  <!-- The script below is to handle the changing slider value -->
+  <script>
+    var slider = document.getElementById('LEDstrength');
+    var output = document.getElementById('LEDvalue');
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+  </script>
 
   </body>
 
