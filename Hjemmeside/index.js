@@ -9,6 +9,8 @@ function ON()  {
   x.innerHTML = "The LED is currently ON";
 }
 
-function MatrixState() {
-  var x = document.
+function MatrixState(button) {
+  if (document.getElementById(button).style.backgroundColor === "grey") {
+    document.getElementById(button).style.backgroundColor = "green";
+  }
 }
