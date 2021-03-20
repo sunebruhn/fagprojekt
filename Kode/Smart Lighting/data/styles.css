@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'walterregular';
+  src: url('walter-regular-webfont.woff2') format('woff2'),
+       url('walter-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/* This is the body of the website, being applied to everything */
+body  {
+  margin: 0px;
+  padding: 0px;
+  background-color: AliceBlue;
+}
+
+/* The flex container is basically everything in the website */
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* This applies to all divs in the flex container */
+.flex-container > div {
+  text-align: center;
+}
+
+/* Applies to the title, duh */
+.title  {
+  font-family: 'walterregular';
+  font-size: 100px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Applies to the top, duh */
+.top  {
+  font-family: arial;
+  font-size: 24px;
+
+  margin: 35px;
+}
+
+/* Applies to the different middle sections */
+.middletop  {
+  font-family: arial;
+  font-size: 50px;
+
+  margin: 75px;
+}
+
+.button1 {
+  background-color: navajowhite;
+  font-size: 25px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.middlemid  {
+  font-family: arial;
+  font-size: 50px;
+
+  margin: 75px;
+}
+
+.middlebottom  {
+  font-family: arial;
+  font-size: 50px;
+
+  margin: 75px;
+}
+/* /////////////////////////////////////// */
+
+/* Applies to the bottom, duh */
+.bottom  {
+  font-family: arial;
+  font-size: 50px;
+
+  margin: 75px;
+}

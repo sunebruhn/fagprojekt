@@ -2,18 +2,16 @@
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
-#include "time.h"
+#include <time.h>
 #include "files.h"
+#include "wifiprotocols.h"
 #include "webprotocols.h"
 
 //  Definitions and globals
 
-#define ssid "Sunet"
-#define password "sunesune"
-
-// Create AsyncWebServer object on port 80
-AsyncWebServer server(80);
-AsyncWebSocket ws("/test");
+  // Create AsyncWebServer object on port 80
+  AsyncWebServer server(80);
+  AsyncWebSocket ws("/test");
 
 //   SSSSSS   EEEEEEEE  TTTTTTTT  UU    UU  PPPPPPP
 //  SS    SS  EE           TT     UU    UU  PP    PP
@@ -32,30 +30,47 @@ void setup() {
     return;
   }
 
-  /*//read from config
-  if(!checkFile(SPIFFS, "/config.txt")){
-    writeFile(SPIFFS, "/config.txt","test SSID: Sunet\nPassword: sunesune\n");
-  }*/
-
   //  connect to WiFi
-  Serial.printf("Connecting to %s ", ssid);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-      delay(500);
-      Serial.print(".");
-  }
-  Serial.println(" CONNECTED");
-  Serial.println(WiFi.localIP());
+  setupWiFi();
 
-  //  Web server protocols
+  //  Web server protocols 
+
   ws.onEvent(onWsEvent);
   server.addHandler(&ws);
+
+  xTaskCreate(
+    handleClientConnections,      // task function
+    "Handle Client Connections",  // task name
+    1024,                         // stack size
+    (void*)&ws,                   // parameters passed
+    0,                            // priority
+    NULL);                        // handler
+
   // Route for root / web page
+
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/index.html");
   });
 
+  server.on("/styles.css", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/styles.css");
+  });
+
+  server.on("/walter-regular-webfont.woff", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/walter-regular-webfont.woff");
+  });
+
+  server.on("/walter-regular-webfont.woff2", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/walter-regular-webfont.woff2");
+  });
+
+  server.on("/script.js", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/script.js");
+  });
+
+
   server.begin();
+
 }
 
 //  LL         OOOOOO    OOOOOO   PPPPPPP
