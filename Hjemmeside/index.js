@@ -10,7 +10,15 @@ function ON()  {
 }
 
 function MatrixState(button) {
-  if (document.getElementById(button).style.backgroundColor === "grey") {
-    document.getElementById(button).style.backgroundColor = "green";
+  var x = document.getElementById(button);
+  switch (x.innerHTML)  {
+    case " ":
+      x.innerHTML = "  ";
+      document.getElementById(button).style.background = "green";
+      break;
+    case "  ":
+      x.innerHTML = " ";
+      document.getElementById(button).style.background = "grey";
+      break;
   }
 }
