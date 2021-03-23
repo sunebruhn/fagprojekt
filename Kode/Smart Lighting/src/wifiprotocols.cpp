@@ -1,64 +1,114 @@
 #include "wifiprotocols.h"
 
-#define WIFI_NETWORK "Sunet"
-#define WIFI_PASSWORD "sunesune"
-#define WIFI_TIMEOUT_MS 20000 // 20 second WiFi connection timeout
+#define WIFI_TIMEOUT_MS 20000      // 20 second WiFi connection timeout
 #define WIFI_RECOVER_TIME_MS 30000 // Wait 30 seconds after a failed connection attempt
+#define CONFIG_FILE "/config.txt"
 
-void beginWiFi(){
+Config WIFI_CREDENTIALS;
 
-  Serial.print("[WIFI] Connecting");
-    WiFi.mode(WIFI_STA);
-    WiFi.begin(WIFI_NETWORK, WIFI_PASSWORD);
+void autoConnect()
+{
+  
+  if (loadConfiguration(SPIFFS, CONFIG_FILE, WIFI_CREDENTIALS))
+  {
+    Serial.println("[WIFI] Using existing credentials");
+  }
 
-    unsigned long startAttemptTime = millis();
+  //Setup captive portal
+  WiFi.mode(WIFI_AP_STA);
+  WiFi.softAP("ESP Config");
+  Serial.print("ESP32 IP as soft AP: ");
+  Serial.println(WiFi.softAPIP());
 
-    // Keep looping while we're not connected and haven't reached the timeout
-    while (WiFi.status() != WL_CONNECTED && 
-            millis() - startAttemptTime < WIFI_TIMEOUT_MS){
-      vTaskDelay(500);
-      Serial.print(".");
-    }
+  xTaskCreate(
+      waitForConfig,   // Task function
+      "waitForConfig", // Task name
+      5000,            // Stack size (bytes)
+      NULL,            // Parameter
+      1,               // Task priority
+      NULL             // Task handle
+  );
 
-    // When we couldn't make a WiFi connection (or the timeout expired)
-    // sleep for a while and then retry.
-    if(WiFi.status() != WL_CONNECTED){
-      Serial.print("\n[WIFI] Connection failed. Retrying in ");
-      Serial.print(WIFI_RECOVER_TIME_MS / 1000);
-      Serial.print(" seconds\n");
-      vTaskDelay(WIFI_RECOVER_TIME_MS / portTICK_PERIOD_MS);
-      return;
-    }
-
-    Serial.print("\n[WIFI] Connected: ");
-    Serial.print(WiFi.localIP());
-    Serial.println();
 }
 
-void keepWiFiAlive(void * parameter){
-  
+void waitForConfig(void * parameters){
+
   while(1){
-    if(WiFi.status() == WL_CONNECTED){
-      Serial.println("[WIFI] Succesful Check");
-      vTaskDelay(6*10000 / portTICK_PERIOD_MS); //check every minute
+    if(!loadConfiguration(SPIFFS, CONFIG_FILE, WIFI_CREDENTIALS)){
+      Serial.println("Awaiting wifi config");
+      vTaskDelay(WIFI_TIMEOUT_MS / portTICK_PERIOD_MS);
       continue;
     }
+    
+    if(beginWiFi()){
 
-    beginWiFi();  
-    vTaskDelay(10 / portTICK_PERIOD_MS);  
+      xTaskCreate(
+      keepWiFiAlive,   // Task function
+      "keepWiFiAlive", // Task name
+      5000,            // Stack size (bytes)
+      NULL,            // Parameter
+      1,               // Task priority
+      NULL             // Task handle
+      );
+
+      // delete waitForConfig
+      vTaskDelete(NULL);
+
+      continue;
+    }
+    vTaskDelay(WIFI_TIMEOUT_MS / portTICK_PERIOD_MS);
   }
 }
 
-void setupWiFi(){
+boolean beginWiFi()
+{
 
-  beginWiFi();
+  Serial.print("[WIFI] Connecting");
+  //WiFi.mode(WIFI_AP_STA);
+  WiFi.begin(WIFI_CREDENTIALS.ssid, WIFI_CREDENTIALS.pass);
 
-  xTaskCreate(
-    keepWiFiAlive,    // Task function
-    "keepWiFiAlive",  // Task name
-    5000,             // Stack size (bytes)
-    NULL,             // Parameter
-    1,                // Task priority
-    NULL              // Task handle
-  );
+  unsigned long startAttemptTime = millis();
+
+  // Keep looping while we're not connected and haven't reached the timeout
+  while (WiFi.status() != WL_CONNECTED &&
+         millis() - startAttemptTime < WIFI_TIMEOUT_MS)
+  {
+    vTaskDelay(500);
+    Serial.print(".");
+  }
+
+  // When we couldn't make a WiFi connection (or the timeout expired)
+  // sleep for a while and then retry.
+  if (WiFi.status() != WL_CONNECTED)
+  {   
+    Serial.println("\n[WIFI] Connection failed.");
+    return false;
+  }
+  Serial.print("\n[WIFI] Connected: ");
+  Serial.print(WiFi.localIP());
+  Serial.println();
+  return true;
+}
+
+void keepWiFiAlive(void *parameter)
+{
+
+  while (1)
+  {
+    if (WiFi.status() == WL_CONNECTED)
+    {
+      Serial.println("[WIFI] Succesful Check");
+      vTaskDelay(6 * 10000 / portTICK_PERIOD_MS); //check every minute
+      continue;
+    }
+
+    if (beginWiFi()){
+      vTaskDelay(6 * 10000 / portTICK_PERIOD_MS); //check in a minute
+      continue;
+    }
+    Serial.print("\n[WIFI] Connection failed. Retrying in ");
+    Serial.print(WIFI_RECOVER_TIME_MS / 1000);
+    Serial.print(" seconds\n");
+    vTaskDelay(WIFI_RECOVER_TIME_MS / portTICK_PERIOD_MS);
+  }
 }
