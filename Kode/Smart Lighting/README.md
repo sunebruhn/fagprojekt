@@ -14,4 +14,5 @@ Skal gøres:
   - Kontrol af LED kredsløb
   - Timers
   - Captive portal
+  - Static IP
   
