@@ -5,11 +5,13 @@ Gjort:
   - AsyncWebServer
   - WebSocket
   - SPI Flash File System
-  - 
+  - Autoconnect
+
 
 Skal gøres:
   - Regulering af power converter (kræver at power converteren er påbegyndt)
   - Fuld integrering med hjemmeside (kræver at hjemmesiden er færdig)
   - Kontrol af LED kredsløb
   - Timers
-  - Autoconnect
+  - Captive portal
+  
