@@ -20,6 +20,8 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
       }
       Serial.println();
       //testing done
+
+      handleData((char*)data, len);
       break;
 
     default:
@@ -43,4 +45,31 @@ void handleClientConnections(void * ws){
   }
 }
 
+void handleData(char* data, size_t len){
+  DynamicJsonDocument doc(1024);
+  deserializeJson(doc, data);
+  enum identifiers identifier; 
+  identifier = doc["id"];
 
+  switch (identifier)
+  {
+  case NO_ID:
+    Serial.println("Data had no ID");
+    break;
+  case WIFI_CONFIG:
+    Config config;
+    // Copy values from the JsonDocument to the Config
+    strlcpy(config.ssid,          // <- destination
+            doc["ssid"] | "",     // <- source
+            sizeof(config.ssid)); // <- destination's capacity
+    strlcpy(config.pass,          // <- destination
+            doc["pass"] | "",     // <- source
+            sizeof(config.pass)); // <- destination's capacity
+    saveConfiguration(SPIFFS, "/config.txt", config);
+    break;
+  
+  default:
+    break;
+  }
+
+}
