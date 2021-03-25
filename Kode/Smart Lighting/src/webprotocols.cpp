@@ -66,6 +66,19 @@ void handleData(char* data, size_t len){
             doc["pass"] | "",     // <- source
             sizeof(config.pass)); // <- destination's capacity
     saveConfiguration(SPIFFS, "/config.txt", config);
+
+    // delete AP
+    WiFi.softAPdisconnect();
+    
+    // begin station
+    xTaskCreate(
+      keepWiFiAlive,   // Task function
+      "keepWiFiAlive", // Task name
+      5000,            // Stack size (bytes)
+      NULL,            // Parameter
+      1,               // Task priority
+      NULL             // Task handle
+      );
     break;
   
   default:

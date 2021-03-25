@@ -5,6 +5,7 @@
 #include <ESPAsyncWebServer.h>
 #include <ArduinoJson.h>
 #include "wificonfig.h"
+#include "wifiprotocols.h"
 #include "files.h"
 
 enum identifiers{NO_ID, WIFI_CONFIG};

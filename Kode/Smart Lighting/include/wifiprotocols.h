@@ -6,11 +6,17 @@
 #include <ESPAsyncWebServer.h>
 #include "wificonfig.h"
 
+boolean beginSTA();
+
+boolean beginAP();
+
 void autoConnect();
 
-void waitForConfig(void * parameters);
+//void keepAPAlive(void * parameter);
 
-boolean beginWiFi();
+//void waitForConfig(void * parameters);
+
+//boolean beginWiFi();
 
 void keepWiFiAlive(void * parameter);
 

@@ -36,7 +36,7 @@ void setup()
 
   //  connect to WiFi
   autoConnect();
-
+  
   //  Web server protocols
 
   ws.onEvent(onWsEvent);
