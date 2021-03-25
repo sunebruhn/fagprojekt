@@ -2,69 +2,17 @@
 
 #define WIFI_TIMEOUT_MS 20000      // 20 second WiFi connection timeout
 #define WIFI_RECOVER_TIME_MS 30000 // Wait 30 seconds after a failed connection attempt
+#define MAX_ATTEMPTS 3
 #define CONFIG_FILE "/config.txt"
 
 Config WIFI_CREDENTIALS;
 
-void autoConnect()
+TaskHandle_t xTaskHandleAP = NULL;
+
+boolean beginSTA()
 {
-  
-  if (loadConfiguration(SPIFFS, CONFIG_FILE, WIFI_CREDENTIALS))
-  {
-    Serial.println("[WIFI] Using existing credentials");
-  }
-
-  //Setup captive portal
-  WiFi.mode(WIFI_AP_STA);
-  WiFi.softAP("ESP Config");
-  Serial.print("ESP32 IP as soft AP: ");
-  Serial.println(WiFi.softAPIP());
-
-  xTaskCreate(
-      waitForConfig,   // Task function
-      "waitForConfig", // Task name
-      5000,            // Stack size (bytes)
-      NULL,            // Parameter
-      1,               // Task priority
-      NULL             // Task handle
-  );
-
-}
-
-void waitForConfig(void * parameters){
-
-  while(1){
-    if(!loadConfiguration(SPIFFS, CONFIG_FILE, WIFI_CREDENTIALS)){
-      Serial.println("Awaiting wifi config");
-      vTaskDelay(WIFI_TIMEOUT_MS / portTICK_PERIOD_MS);
-      continue;
-    }
-    
-    if(beginWiFi()){
-
-      xTaskCreate(
-      keepWiFiAlive,   // Task function
-      "keepWiFiAlive", // Task name
-      5000,            // Stack size (bytes)
-      NULL,            // Parameter
-      1,               // Task priority
-      NULL             // Task handle
-      );
-
-      // delete waitForConfig
-      vTaskDelete(NULL);
-
-      continue;
-    }
-    vTaskDelay(WIFI_TIMEOUT_MS / portTICK_PERIOD_MS);
-  }
-}
-
-boolean beginWiFi()
-{
-
-  Serial.print("[WIFI] Connecting");
-  //WiFi.mode(WIFI_AP_STA);
+  Serial.print("[WIFI beginSTA] Beginning wifi station");
+  WiFi.mode(WIFI_STA);
   WiFi.begin(WIFI_CREDENTIALS.ssid, WIFI_CREDENTIALS.pass);
 
   unsigned long startAttemptTime = millis();
@@ -81,18 +29,62 @@ boolean beginWiFi()
   // sleep for a while and then retry.
   if (WiFi.status() != WL_CONNECTED)
   {   
-    Serial.println("\n[WIFI] Connection failed.");
+    Serial.println("\n[WIFI beginSTA] Connection failed.");
     return false;
   }
-  Serial.print("\n[WIFI] Connected: ");
+  Serial.print("\n[WIFI beginSTA] Connected: ");
   Serial.print(WiFi.localIP());
   Serial.println();
   return true;
 }
 
+boolean beginAP()
+{
+  Serial.print("[WIFI beginAP] Beginning wifi AP");
+  //Setup captive portal
+  WiFi.mode(WIFI_AP);
+  if(!WiFi.softAP("ESP Config")){
+    Serial.println("[WIFI beginAP] Error starting AP");
+    return false;
+  }
+  Serial.print("ESP32 IP as soft AP: ");
+  Serial.println(WiFi.softAPIP());
+
+  // TODO : Setup captive portal
+
+  return true;  
+}
+
+void autoConnect()
+{
+  //WiFi.mode(WIFI_OFF);
+  
+  if (loadConfiguration(SPIFFS, CONFIG_FILE, WIFI_CREDENTIALS))
+  {
+    Serial.println("[WIFI autoConnect] Using existing credentials");
+    beginSTA();
+    xTaskCreate(
+      keepWiFiAlive,   // Task function
+      "keepWiFiAlive", // Task name
+      5000,            // Stack size (bytes)
+      NULL,            // Parameter
+      1,               // Task priority
+      NULL             // Task handle
+      );
+      return;
+  }
+  // Opening AP
+  while(!beginAP())
+  {
+    Serial.println("Failed to open AP. Retrying in ");
+    Serial.print(WIFI_RECOVER_TIME_MS / 1000);
+    Serial.print(" seconds\n");
+    vTaskDelay(WIFI_RECOVER_TIME_MS / portTICK_PERIOD_MS);
+  }
+}
+
 void keepWiFiAlive(void *parameter)
 {
-
   while (1)
   {
     if (WiFi.status() == WL_CONNECTED)
@@ -102,13 +94,54 @@ void keepWiFiAlive(void *parameter)
       continue;
     }
 
-    if (beginWiFi()){
-      vTaskDelay(6 * 10000 / portTICK_PERIOD_MS); //check in a minute
+    // Load config
+    loadConfiguration(SPIFFS, CONFIG_FILE, WIFI_CREDENTIALS);
+
+    // Attempt to reconnect with MAX_ATTEMPTS
+    for(int i = MAX_ATTEMPTS; i; i--)
+    {
+      if (beginSTA())
+      {
+        break;
+      }
+      Serial.print("\n[WIFI] Connection failed. Retrying in ");
+      Serial.print(WIFI_RECOVER_TIME_MS / 1000);
+      Serial.print(" seconds\n");
+      vTaskDelay(WIFI_RECOVER_TIME_MS / portTICK_PERIOD_MS);
+    }
+
+    // if connection succeeded, continue
+    if (WiFi.status() == WL_CONNECTED)
+    {
+      Serial.println("[WIFI] Succesful Check");
+      vTaskDelay(6 * 10000 / portTICK_PERIOD_MS); //check every minute
       continue;
     }
-    Serial.print("\n[WIFI] Connection failed. Retrying in ");
-    Serial.print(WIFI_RECOVER_TIME_MS / 1000);
-    Serial.print(" seconds\n");
-    vTaskDelay(WIFI_RECOVER_TIME_MS / portTICK_PERIOD_MS);
+
+    // else, end WiFi and clear config
+    Serial.println("[WIFI] WiFi unavailable with current credentials. Clearing config.");
+    WiFi.disconnect();
+    strlcpy(WIFI_CREDENTIALS.ssid,          // <- destination
+          "",                               // <- source
+          sizeof(WIFI_CREDENTIALS.ssid));   // <- destination's capacity
+    strlcpy(WIFI_CREDENTIALS.pass,          // <- destination
+          "",                               // <- source
+          sizeof(WIFI_CREDENTIALS.pass));   // <- destination's capacity
+    saveConfiguration(SPIFFS, "/config.txt", WIFI_CREDENTIALS);
+    // reopen AP and delete this task
+    // Opening AP
+    for(int i = MAX_ATTEMPTS; i; i--)
+    {
+      if (beginAP())
+      {
+        Serial.println("AP opening. Deleting task keepWiFiAlive");
+        vTaskDelete(NULL);
+      }
+      Serial.print("\n[WIFI] Failed to open AP. Retrying in ");
+      Serial.print(WIFI_RECOVER_TIME_MS / 1000);
+      Serial.print(" seconds\n");
+      vTaskDelay(WIFI_RECOVER_TIME_MS / portTICK_PERIOD_MS);
+    }
+    Serial.println("Failed to open AP. Reattempting station mode");
   }
 }
