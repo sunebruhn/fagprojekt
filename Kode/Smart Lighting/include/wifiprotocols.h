@@ -4,7 +4,19 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <ESPAsyncWebServer.h>
+#include <DNSServer.h>
 #include "wificonfig.h"
+
+class CaptiveRequestHandler : public AsyncWebHandler {
+public:
+  CaptiveRequestHandler() {}
+  virtual ~CaptiveRequestHandler() {}
+
+  bool canHandle(AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/config_page.html");
+    return true;
+  }
+};
 
 boolean beginSTA();
 
@@ -12,11 +24,7 @@ boolean beginAP();
 
 void autoConnect();
 
-//void keepAPAlive(void * parameter);
-
-//void waitForConfig(void * parameters);
-
-//boolean beginWiFi();
+void handleDNS(void * parameters);
 
 void keepWiFiAlive(void * parameter);
 

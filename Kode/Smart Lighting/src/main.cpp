@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
+#include <DNSServer.h>
 #include <SPIFFS.h>
 #include <ArduinoJson.h>
 #include <time.h>
@@ -41,6 +42,7 @@ void setup()
 
   ws.onEvent(onWsEvent);
   server.addHandler(&ws);
+  server.addHandler(new CaptiveRequestHandler()).setFilter(ON_AP_FILTER);
 
   xTaskCreate(
       handleClientConnections,     // task function
@@ -53,10 +55,10 @@ void setup()
   // Route for root / web page
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-    if (ON_AP_FILTER(request))
+    /*if (ON_AP_FILTER(request))
     {
       request->send(SPIFFS, "/config_page.html");
-    }
+    }*/
     request->send(SPIFFS, "/index.html");
   });
 

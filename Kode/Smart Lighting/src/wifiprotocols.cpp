@@ -7,7 +7,7 @@
 
 Config WIFI_CREDENTIALS;
 
-TaskHandle_t xTaskHandleAP = NULL;
+DNSServer dnsServer;
 
 boolean beginSTA()
 {
@@ -47,12 +47,31 @@ boolean beginAP()
     Serial.println("[WIFI beginAP] Error starting AP");
     return false;
   }
+  WiFi.softAPConfig(IPAddress(192,168,1,69),IPAddress(192,168,1,69),IPAddress(255,255,255,0));
   Serial.print("ESP32 IP as soft AP: ");
   Serial.println(WiFi.softAPIP());
 
   // TODO : Setup captive portal
-
+  dnsServer.start(53, "*", WiFi.softAPIP());
+  xTaskCreate(
+      handleDNS,   // Task function
+      "handleDNS", // Task name
+      5000,            // Stack size (bytes)
+      NULL,            // Parameter
+      1,               // Task priority
+      NULL             // Task handle
+      );
+      
   return true;  
+}
+
+void handleDNS(void * parameters)
+{
+  while(1)
+  {
+    dnsServer.processNextRequest();
+    vTaskDelay(100 / portTICK_PERIOD_MS);
+  }
 }
 
 void autoConnect()
