@@ -8,6 +8,7 @@
 Config WIFI_CREDENTIALS;
 
 DNSServer dnsServer;
+TaskHandle_t dnsHandle;
 
 boolean beginSTA()
 {
@@ -59,7 +60,7 @@ boolean beginAP()
       5000,            // Stack size (bytes)
       NULL,            // Parameter
       1,               // Task priority
-      NULL             // Task handle
+      &dnsHandle       // Task handle
       );
       
   return true;  
@@ -121,6 +122,7 @@ void keepWiFiAlive(void *parameter)
     {
       if (beginSTA())
       {
+        vTaskDelete(dnsHandle);
         break;
       }
       Serial.print("\n[WIFI] Connection failed. Retrying in ");
