@@ -1,0 +1,14 @@
+* C:\Users\Bruger\Desktop\DUTTEN\fagprojekt\Power converter\Flyback.asc
+V1 N001 0 SINE(0 230 50)
+D1 N002 0 GSIB2580
+D2 N001 N003 GSIB2580
+D3 N002 N001 GSIB2580
+D4 0 N003 GSIB2580
+R1 N003 N002 100
+.model D D
+.lib C:\Users\Bruger\Documents\LTspiceXVII\lib\cmp\standard.dio
+* Full Bridge Rectifier
+.tran 0 0.1s 0
+.model GSIB2580 D(Ron = 1 Roff = 1Meg Vfwd = 1 Vrev = 800 Ilimit = 25 Revilimit = 10u)
+.backanno
+.end

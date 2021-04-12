@@ -1,0 +1,21 @@
+Circuit: * C:\Users\Bruger\Desktop\DUTTEN\fagprojekt\Power converter\Flyback.asc
+
+.OP point found by inspection.
+
+Date: Mon Apr 12 14:07:21 2021
+Total elapsed time: 0.057 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2115
+traniter = 2115
+tranpoints = 1042
+accept = 1042
+rejected = 0
+matrix size = 4
+fillins = 0
+solver = Normal
+Matrix Compiler1: 118 bytes object code size  0.1/0.0/[0.0]
+Matrix Compiler2: 282 bytes object code size  0.1/0.1/[0.0]
+
