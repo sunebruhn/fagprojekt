@@ -1,0 +1,89 @@
+Circuit: * C:\Users\Bruger\Desktop\DUTTEN\fagprojekt\Power converter\LT8316 Flyback.asc
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-05
+Gmin = 1.6455e-06
+Gmin = 1.76685e-07
+Gmin = 1.89714e-08
+Gmin = 2.03704e-09
+Gmin = 2.18725e-10
+Gmin = 2.34854e-11
+Gmin = 2.52173e-12
+Gmin = 2.70769e-13
+Gmin = 0
+Gmin stepping succeeded in finding the operating point.
+
+Ignoring empty pin current: Ix(endoscreset:in)
+Ignoring empty pin current: Ix(endoscreset:out)
+Ignoring empty pin current: Ix(endleb:in)
+Ignoring empty pin current: Ix(endleb:out)
+Ignoring empty pin current: Ix(maxontime:in)
+Ignoring empty pin current: Ix(maxontime:out)
+Ignoring empty pin current: Ix(dprimeest:in)
+Ignoring empty pin current: Ix(dprimeest:out)
+Ignoring empty pin current: Ix(enddcmblank:in)
+Ignoring empty pin current: Ix(enddcmblank:out)
+Ignoring empty pin current: Ix(endsample:in)
+Ignoring empty pin current: Ix(endsample:out)
+Ignoring empty pin current: Ix(backuposc:in)
+Ignoring empty pin current: Ix(backuposc:out)
+Ignoring empty pin current: Ix(endreset:in)
+Ignoring empty pin current: Ix(endreset:out)
+Ignoring empty pin current: Ix(sleep:in)
+Ignoring empty pin current: Ix(sleep:out)
+Ignoring empty pin current: Ix(u1:2)
+Ignoring empty pin current: Ix(u1:3)
+Ignoring empty pin current: Ix(u1:4)
+Ignoring empty pin current: Ix(u1:5)
+Ignoring empty pin current: Ix(u1:6)
+Ignoring empty pin current: Ix(u1:7)
+Ignoring empty pin current: Ix(endoscreset:in)
+Ignoring empty pin current: Ix(endoscreset:out)
+Ignoring empty pin current: Ix(endleb:in)
+Ignoring empty pin current: Ix(endleb:out)
+Ignoring empty pin current: Ix(maxontime:in)
+Ignoring empty pin current: Ix(maxontime:out)
+Ignoring empty pin current: Ix(dprimeest:in)
+Ignoring empty pin current: Ix(dprimeest:out)
+Ignoring empty pin current: Ix(enddcmblank:in)
+Ignoring empty pin current: Ix(enddcmblank:out)
+Ignoring empty pin current: Ix(endsample:in)
+Ignoring empty pin current: Ix(endsample:out)
+Ignoring empty pin current: Ix(backuposc:in)
+Ignoring empty pin current: Ix(backuposc:out)
+Ignoring empty pin current: Ix(endreset:in)
+Ignoring empty pin current: Ix(endreset:out)
+Ignoring empty pin current: Ix(sleep:in)
+Ignoring empty pin current: Ix(sleep:out)
+Ignoring empty pin current: Ix(u1:2)
+Ignoring empty pin current: Ix(u1:3)
+Ignoring empty pin current: Ix(u1:4)
+Ignoring empty pin current: Ix(u1:5)
+Ignoring empty pin current: Ix(u1:6)
+Ignoring empty pin current: Ix(u1:7)
+Heightened Def Con from 0.142851 to 0.142851
+
+Date: Thu Apr 15 17:30:44 2021
+Total elapsed time: 29.411 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 1410651
+traniter = 1410295
+tranpoints = 441392
+accept = 303638
+rejected = 137755
+matrix size = 54
+fillins = 25
+solver = Normal
+Matrix Compiler1: 3.43 KB object code size  1.6/1.0/[0.6]
+Matrix Compiler2: 4.19 KB object code size  1.2/2.0/[0.9]
+
