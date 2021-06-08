@@ -76,13 +76,16 @@
     slider.oninput = function() {
       output.innerHTML = this.value;
     }
+    slider.onchange = function()  {
+      console.log(this.value);
+    }
+
 
     var backRGB = document.getElementById("colorpicker").value;
     document.getElementById("colorpicker").onchange = function()  {
       backRGB = this.value;
       console.log(backRGB);
     }
-
   </script>
 
   </body>
