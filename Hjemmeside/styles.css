@@ -136,3 +136,22 @@ label {
 input {
     margin: .4rem;
 }
+
+.config-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* This applies to all divs in the flex container */
+.config-container > div {
+  text-align: center;
+}
+
+.config-title  {
+  font-family: walter;
+  font-size: 60px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
