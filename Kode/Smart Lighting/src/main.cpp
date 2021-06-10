@@ -13,6 +13,8 @@
 
 //  Definitions and globals
 
+Lamp lamp;
+
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
 AsyncWebSocket ws("/test");
