@@ -1,0 +1,32 @@
+<!DOCTYPE HTML><html>
+<html>
+	<head>
+		<link rel="stylesheet" href="styles.css">
+		<script type = "text/javascript">
+
+			var ws = new WebSocket("ws://192.168.1.69/test");
+			function SendData(form){
+				ws.send(JSON.stringify({'id': 1, 'ssid': form.SSID.value, 'pass': form.Password.value}));
+			}
+
+		</script>
+
+	</head>
+<body>
+
+	<div class="config-container">
+		<div class="config-title">
+			<h1>Config</h1>
+		</div>
+
+		<div class="config-body">
+			<form onSubmit = "event.preventDefault(); SendData(this);" >
+			    <label class="label">WiFi Credentials: </label>
+			    <input type="text" name="SSID">
+			    <input type="text" name="Password">
+			    <input type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+
+</body>

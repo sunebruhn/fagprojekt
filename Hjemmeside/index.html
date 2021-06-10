@@ -23,9 +23,8 @@
 
       <!-- This is the meat of the website where all the controlpanels will be -->
       <div class="middletop">
-        <div id = "LEDState"> The LED is currently ON </div>
-        <button class="button button1" onclick="ON()">On</button>
-        <button class="button button2" onclick="OFF()">Off</button>
+        <div id = "LEDState"> Power button </div>
+        <button id="buttonLED" class="button button1" onclick="LEDswitch('buttonLED')">On</button>
       </div>
 
       <div class="middlemid">
@@ -33,6 +32,15 @@
         <input type="range" min="1" max="100" value="50" class="slider" id="LEDstrength">
       </div>
 
+
+      <div class="middlebottom">
+        <div> Choose the color of the light </div>
+          <div>
+            <input type="color" id="colorpicker" value="#f6b73c">
+          </div>
+      </div>
+
+      <!--
       <div class="middlebottom">
         <div> Pattern customizer </div>
         <button id="button1" class="button buttonMatrix1" onclick="MatrixState('button1')"> </button>
@@ -52,21 +60,31 @@
         <button id="button15" class="button buttonMatrix14" onclick="MatrixState('button15')"> </button>
         <button id="button16" class="button buttonMatrix15" onclick="MatrixState('button16')"> </button>
       </div>
-      <!-- /////////////////////////////////////////////////////////////////////// -->
+      -->
 
       <!-- This will be the place to honor the authors -->
       <div class="bottom">
-        <div> Made by:<br> Emil k, Emil L, Sune og William </div>
+        <div> Made by:<br> Emil K, Emil L, Sune og William </div>
       </div>
     </div>
 
-  <!-- The script below is to handle the changing slider value -->
+  <!-- The script below it to handle the changing slider value -->
   <script>
     var slider = document.getElementById('LEDstrength');
     var output = document.getElementById('LEDvalue');
     output.innerHTML = slider.value;
     slider.oninput = function() {
       output.innerHTML = this.value;
+    }
+    slider.onchange = function()  {
+      console.log(this.value);
+    }
+
+
+    var backRGB = document.getElementById("colorpicker").value;
+    document.getElementById("colorpicker").onchange = function()  {
+      backRGB = this.value;
+      console.log(backRGB);
     }
   </script>
 

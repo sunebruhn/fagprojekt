@@ -44,9 +44,13 @@ body  {
 /* Applies to the different middle sections */
 .middletop  {
   font-family: arial;
-  font-size: 50px;
+  font-size: 40px;
 
   margin: 75px;
+}
+
+.buttonLED  {
+
 }
 
 .button1 {
@@ -55,21 +59,13 @@ body  {
   height: 80px;
   width: 80px;
   border-radius: 50%;
-  margin: 50px;
+  margin: 30px;
 }
 
-.button2 {
-  background-color: FireBrick;
-  font-size: 25px;
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-  margin: 50px;
-}
 
 .middlemid  {
   font-family: arial;
-  font-size: 50px;
+  font-size: 40px;
 
   margin-bottom: 150px;
 }
@@ -111,7 +107,7 @@ body  {
 
 .middlebottom  {
   font-family: arial;
-  font-size: 50px;
+  font-size: 40px;
   margin-bottom: 75px;
 }
 
@@ -128,7 +124,34 @@ body  {
 /* Applies to the bottom, duh */
 .bottom  {
   font-family: arial;
-  font-size: 50px;
+  font-size: 20px;
 
   margin: 75px;
+}
+
+label {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+    margin: .4rem;
+}
+
+.config-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* This applies to all divs in the flex container */
+.config-container > div {
+  text-align: center;
+}
+
+.config-title  {
+  font-family: walter;
+  font-size: 60px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
