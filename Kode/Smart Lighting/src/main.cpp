@@ -9,6 +9,7 @@
 #include "wificonfig.h"
 #include "wifiprotocols.h"
 #include "webprotocols.h"
+#include "lamp.h"
 
 //  Definitions and globals
 
