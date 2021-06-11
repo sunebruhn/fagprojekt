@@ -14,17 +14,17 @@
 	</head>
 <body>
 
-	<div class="config-container">
-		<div class="config-title">
+	<div class="config-container", style="background-color: AliceBlue;display: flex;flex-direction: column;justify-content: space-between;">
+		<div class="config-title" style="text-align: center;font-family: 'walterregular';font-size: 60px;padding-top: 20px;padding-bottom: 20px;">
 			<h1>Config</h1>
 		</div>
 
-		<div class="config-body">
+		<div class="config-body" style="text-align: center;">
 			<form onSubmit = "event.preventDefault(); SendData(this);" >
-			    <label class="label">WiFi Credentials: </label>
-			    <input type="text" name="SSID">
-			    <input type="text" name="Password">
-			    <input type="submit" value="Submit">
+			    <label class="label">WiFi Credentials: </label>	<br>
+			    <input type="text" name="SSID">	<br>
+			    <input type="text" name="Password">	<br>
+			    <input type="submit" value="Submit">	<br>
 			</form>
 		</div>
 	</div>
