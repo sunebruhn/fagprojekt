@@ -78,24 +78,25 @@ void Lamp::runAround(){ //bevæger sig rundt i 4 blokke
 }
 
 void Lamp::water(){
-    for(int i = 0; i < 6; i++){
-    for(int j = 0; j < 6; j++){
-      strip_a.setPixelColor(random8()%6,waterInt[j][0],waterInt[j+1][1],waterInt[j+2][2]);
-      strip_b.setPixelColor(random8()%6,waterInt[j+3][0],waterInt[j+4][1],waterInt[j+5][2]);
-      strip_c.setPixelColor(random8()%6,waterInt[j+6][0],waterInt[j+7][1],waterInt[j+8][2]);
-      strip_d.setPixelColor(random8()%6,waterInt[j+9][0],waterInt[j+10][1],waterInt[j+11][2]);
-      strip_e.setPixelColor(random8()%6,waterInt[j+12][0],waterInt[j+13][1],waterInt[j+14][2]);
-      strip_f.setPixelColor(random8()%6,waterInt[j+15][0],waterInt[j+16][1],waterInt[j+17][2]);
-  strip_a.show();
-  strip_b.show();
-  strip_c.show();
-  strip_d.show();
-  strip_e.show();
-  strip_f.show();
-  delay(100);
+  int randA = random8()%111;
+  int randB= random8()%111;
+  int randC = random8()%111;
+  int randD = random8()%111;
+  int randE = random8()%111;
+  int randF = random8()%111;
+    for(int i = 0; i < 500; i++){
+      for(int j = 0; j < 6; j++){
+        strip_a.setPixelColor(j,waterInt[i+(randA%(10*j))][0],waterInt[i+(randA%(10*j))][1],waterInt[i+(randA%(10*j))][2]);
+        strip_b.setPixelColor(j,waterInt[i+(randB%(10*j))][0],waterInt[i+(randB%(10*j))][1],waterInt[i+(randB%(10*j))][2]);
+        strip_c.setPixelColor(j,waterInt[i+(randC%(10*j))][0],waterInt[i+(randC%(10*j))][1],waterInt[i+(randC%(10*j))][2]);
+        strip_d.setPixelColor(j,waterInt[i+(randD%(10*j))][0],waterInt[i+(randD%(10*j))][1],waterInt[i+(randD%(10*j))][2]);
+        strip_e.setPixelColor(j,waterInt[i+(randE%(10*j))][0],waterInt[i+(randE%(10*j))][1],waterInt[i+(randE%(10*j))][2]);
+        strip_f.setPixelColor(j,waterInt[i+(randF%(10*j))][0],waterInt[i+(randF%(10*j))][1],waterInt[i+(randF%(10*j))][2]);
+        showAll();
+        delay(25);
+      }
     }
- 
-  }
+
 }
 
 void Lamp::randomLights(){ // Tilfældige lys blinker hurtigt
@@ -121,32 +122,32 @@ delay(80);
 
 void Lamp::setRow(int r, int g, int b, int strip) { //tænder for en række med en rgb farve
   
-  if (strip == 1) {
+  if (strip == 0) {
     for (int i = 0; i<NUMPIXELS; i++) {
       strip_a.setPixelColor(i,r,g,b);
     }
   }
-   if (strip == 2) {
+   if (strip == 1) {
     for (int i = 0; i<NUMPIXELS; i++) {
       strip_b.setPixelColor(i,r,g,b);
     }
   }
-   if (strip == 3) {
+   if (strip == 2) {
     for (int i = 0; i<NUMPIXELS; i++) {
       strip_c.setPixelColor(i,r,g,b);
     }
   }
-   if (strip == 4) {
+   if (strip == 3) {
     for (int i = 0; i<NUMPIXELS; i++) {
       strip_d.setPixelColor(i,r,g,b);
     }
   }
-   if (strip == 5) {
+   if (strip == 4) {
     for (int i = 0; i<NUMPIXELS; i++) {
       strip_e.setPixelColor(i,r,g,b);
     }
   }
-   if (strip == 6) {
+   if (strip == 5) {
     for (int i = 0; i<NUMPIXELS; i++) {
       strip_f.setPixelColor(i,r,g,b);
     }
