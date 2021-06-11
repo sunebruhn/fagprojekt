@@ -285,3 +285,24 @@ strip_b.show();
 
 
 }
+
+void Lamp::water(){
+    for(int i = 0; i < 6; i++){
+    for(int j = 0; j < 6; j++){
+      strip_a.setPixelColor(random8()%6,waterInt[j][0],waterInt[j+1][1],waterInt[j+2][2]);
+      strip_b.setPixelColor(random8()%6,waterInt[j+3][0],waterInt[j+4][1],waterInt[j+5][2]);
+      strip_c.setPixelColor(random8()%6,waterInt[j+6][0],waterInt[j+7][1],waterInt[j+8][2]);
+      strip_d.setPixelColor(random8()%6,waterInt[j+9][0],waterInt[j+10][1],waterInt[j+11][2]);
+      strip_e.setPixelColor(random8()%6,waterInt[j+12][0],waterInt[j+13][1],waterInt[j+14][2]);
+      strip_f.setPixelColor(random8()%6,waterInt[j+15][0],waterInt[j+16][1],waterInt[j+17][2]);
+  strip_a.show();
+  strip_b.show();
+  strip_c.show();
+  strip_d.show();
+  strip_e.show();
+  strip_f.show();
+  delay(100);
+    }
+ 
+  }
+}
