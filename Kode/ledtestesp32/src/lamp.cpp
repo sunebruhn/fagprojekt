@@ -326,3 +326,89 @@ strip_e.show();
 strip_f.show();
 delay(80);
 }
+void Lamp::setRow(int r, int g, int b, int strip) {
+  
+  if (strip == 1) {
+    for (int i = 0; i<NUMPIXELS; i++) {
+      strip_a.setPixelColor(i,r,g,b);
+    }
+  }
+   if (strip == 2) {
+    for (int i = 0; i<NUMPIXELS; i++) {
+      strip_b.setPixelColor(i,r,g,b);
+    }
+  }
+   if (strip == 3) {
+    for (int i = 0; i<NUMPIXELS; i++) {
+      strip_c.setPixelColor(i,r,g,b);
+    }
+  }
+   if (strip == 4) {
+    for (int i = 0; i<NUMPIXELS; i++) {
+      strip_d.setPixelColor(i,r,g,b);
+    }
+  }
+   if (strip == 5) {
+    for (int i = 0; i<NUMPIXELS; i++) {
+      strip_e.setPixelColor(i,r,g,b);
+    }
+  }
+   if (strip == 6) {
+    for (int i = 0; i<NUMPIXELS; i++) {
+      strip_f.setPixelColor(i,r,g,b);
+    }
+  }
+  showAll();
+  
+}
+void Lamp::setColumn(int r, int g, int b, int column) {
+  strip_a.setPixelColor(column,r,g,b);
+  strip_b.setPixelColor(column,r,g,b);
+  strip_c.setPixelColor(column,r,g,b);
+  strip_d.setPixelColor(column,r,g,b);
+  strip_e.setPixelColor(column,r,g,b);
+  strip_f.setPixelColor(column,r,g,b);
+  showAll();
+}
+void Lamp::showAll(){
+  strip_a.show();
+  strip_b.show();
+  strip_c.show();
+  strip_d.show();
+  strip_e.show();
+  strip_f.show();
+}
+void Lamp::colorFlow() {
+  squareFour(255,0,0,4);
+  showAll();
+  for (int i = 0; i < 256; i++) {
+    squareFour(255,i,0,4);
+    showAll();
+    delay(100);
+  }
+  for (int i = 255; i >= 0; i--) {
+    squareFour(i,255,0,4);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i < 256; i++) {
+    squareFour(0,255,i,4);
+    showAll();
+    delay(100);
+  }
+  for (int i = 255; i >= 0; i--) {
+    squareFour(0,i,255,4);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i < 256; i++) {
+    squareFour(i,0,255,4);
+    showAll();
+    delay(100);
+  }
+  for (int i = 255; i >= 0; i--) {
+    squareFour(255,0,i,4);
+    showAll();
+    delay(100);
+  }
+}

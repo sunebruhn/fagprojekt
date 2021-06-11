@@ -47,6 +47,10 @@ class Lamp
         void runAround();
         void water();
         void randomLights();
+        void colorFlow();
+        void setRow(int r, int g, int b, int strip);
+        void setColumn(int r, int g, int b, int column);
+        void showAll();
         int waterInt[36][3] = {
 {240,248,255},
 {230,230,250},
