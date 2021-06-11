@@ -13,7 +13,7 @@ function LEDswitch(button)  {
     case "Off":
       x.innerHTML = "On";
       document.getElementById(button).style.background = "LawnGreen";
-      ws.send(JSON.stringify({'id': 1, 'state': 1}));;
+      ws.send(JSON.stringify({'id': 2, 'state': 1}));;
       break;
   }
 }

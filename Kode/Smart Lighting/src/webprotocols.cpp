@@ -1,6 +1,6 @@
 #include "webprotocols.h"
 
-void onWsEvent[lamp](AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
+void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
 
   switch (type)
   {
@@ -81,10 +81,15 @@ void handleData(char* data, size_t len){
       );
     break;
   case ON_OFF_SWITCH:
-    
+    Settings settings;
+    // Copy values from the JsonDocument to the Config
+    strlcpy(settings.state,          // <- destination
+            doc["state"] | "0",     // <- source
+            sizeof(settings.state)); // <- destination's capacity
+    saveSettings(SPIFFS, "/settings.txt", settings);
     break;
   case SET_COLOUR:
-
+    Serial.println();
     break;
   default:
     break;

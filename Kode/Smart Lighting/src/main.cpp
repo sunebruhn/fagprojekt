@@ -14,6 +14,7 @@
 //  Definitions and globals
 
 Lamp lamp;
+Settings lampSettings;
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
@@ -43,7 +44,7 @@ void setup()
   
   //  Web server protocols
 
-  ws.onEvent(onWsEvent[lamp]);
+  ws.onEvent(onWsEvent);
   server.addHandler(&ws);
   server.addHandler(new CaptiveRequestHandler()).setFilter(ON_AP_FILTER);
 
@@ -88,4 +89,11 @@ void setup()
 //  LL        OO    OO  OO    OO  PP
 //  LLLLLLLL   OOOOOO    OOOOOO   PP
 
-void loop() {}
+void loop() {
+  loadSettings(SPIFFS, "/settings.txt", lampSettings);
+  Serial.println(lampSettings.state);
+  if((bool)lampSettings.state){
+    lamp.checkleds();
+  }
+  vTaskDelay(1000);
+}
