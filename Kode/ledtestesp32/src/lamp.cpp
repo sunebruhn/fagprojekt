@@ -412,3 +412,37 @@ void Lamp::colorFlow() {
     delay(100);
   }
 }
+void Lamp::swipe() {
+  int r = 255;
+  int g = 255;
+  int b = 255;
+  for (int i = 0; i<6;i++){
+    setColumn(0,0,255,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <892;i++) {
+    b--;
+    if (i < 255) {
+      setColumn(0,0,b,0);
+    }
+    
+    if (i > 127 && i < 377) {
+      setColumn(0,0,b+127,1);
+    }
+    if (i > 255 && i < 510) {
+      setColumn(0,0,b+255,2);
+    }
+    if (i > 377 && i < 637) {
+      setColumn(0,0,b+377,3);
+    }
+    if (i > 510 && i < 765) {
+      setColumn(0,0,b+510,4);
+    }
+    if (i > 637) {
+      setColumn(0,0,b+637,5);
+    }
+    showAll();
+    delay(10);
+  }
+}
