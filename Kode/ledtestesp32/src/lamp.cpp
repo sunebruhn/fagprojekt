@@ -155,7 +155,7 @@ void Lamp::setRow(int r, int g, int b, int strip) { //tænder for en række med 
   
 }
 
-void Lamp::setColumn(int r, int g, int b, int column) {  /tænder en kollonne med rgb farve
+void Lamp::setColumn(int r, int g, int b, int column) {  //tænder en kollonne med rgb farve
   strip_a.setPixelColor(column,r,g,b);
   strip_b.setPixelColor(column,r,g,b);
   strip_c.setPixelColor(column,r,g,b);
