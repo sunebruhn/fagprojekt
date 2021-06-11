@@ -15,9 +15,9 @@ boolean beginSTA()
   Serial.print("[WIFI beginSTA] Beginning wifi station");
   WiFi.mode(WIFI_STA);
   // Configures static IP address
-  if (!WiFi.config(IPAddress(192,168,2,69), IPAddress(192,168,2,1), IPAddress(255,255,255,0))) {
+  /*if (!WiFi.config(IPAddress(192,168,2,69), IPAddress(192,168,2,1), IPAddress(255,255,255,0))) {
     Serial.println("STA Failed to configure");
-  }
+  }*/
   WiFi.begin(WIFI_CREDENTIALS.ssid, WIFI_CREDENTIALS.pass);
 
   unsigned long startAttemptTime = millis();

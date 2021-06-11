@@ -58,10 +58,6 @@ void setup()
   // Route for root / web page
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-    /*if (ON_AP_FILTER(request))
-    {
-      request->send(SPIFFS, "/config_page.html");
-    }*/
     request->send(SPIFFS, "/index.html");
   });
 
