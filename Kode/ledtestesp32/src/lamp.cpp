@@ -1,6 +1,5 @@
 #include "lamp.h"
 
-
 void Lamp::squareFour(int r, int g, int b, int corner) { //tænder en af fire blokke, eller alle blokke
 if (corner == 0){
   for(int i = 0; i < 3; i++){
@@ -76,7 +75,7 @@ void Lamp::runAround(){ //bevæger sig rundt i 4 blokke
   delay(500);
 
 }
-
+/*
 void Lamp::water(){
   int randA = random8()%111;
   int randB= random8()%111;
@@ -98,6 +97,7 @@ void Lamp::water(){
     }
 
 }
+*/
 
 void Lamp::randomLights(){ // Tilfældige lys blinker hurtigt
 
@@ -207,5 +207,455 @@ void Lamp::colorFlow() { //Går langsomt igennem all farver
     squareFour(255,0,i,4);
     showAll();
     delay(100);
+  }
+}
+
+void Lamp::rainbowStrideColumn(){
+  for(int i = 0; i < 20; i++){
+    setColumn(9, 235, 5,(i%6));
+    delay(10);
+    setColumn(235, 231, 5,(i+1)%6);
+    delay(10);
+    setColumn(5, 235, 224,(i+2)%6);
+    delay(10);
+    setColumn(5, 81, 245,(i+3)%6);
+    delay(10);
+    setColumn(177, 5, 245,(i+4)%6);
+    delay(10);
+    setColumn(245, 5, 17,(i+5)%6);
+    delay(10);
+    setColumn(245, 93, 5,(i+6)%6);
+    delay(10);
+    
+  }
+  
+
+
+}
+
+
+void Lamp::rainbowStrideRow(){
+
+  
+
+  for(int i = 0; i < 20; i++){
+    setRow(9, 235, 5,(i%6));
+    delay(10);
+    setRow(235, 231, 5,(i+1)%6);
+    delay(10);
+    setRow(5, 235, 224,(i+2)%6);
+    delay(10);
+    setRow(5, 81, 245,(i+3)%6);
+    delay(10);
+    setRow(177, 5, 245,(i+4)%6);
+    delay(10);
+    setRow(245, 5, 17,(i+5)%6);
+    delay(10);
+    setRow(245, 93, 5,(i+6)%6);
+    delay(10);
+    
+  }
+  
+
+
+}
+void Lamp::swipe() {
+  swipeRightBlue();
+  swipeLeftRed();
+  swipeUpGreen();
+  swipeDownPurple();
+  swipeRightCyan();
+  swipeLeftYellow();
+  swipeUpBlue();
+  swipeDownRed();
+  swipeRightGreen();
+  swipeLeftPurple();
+  swipeUpCyan();
+  swipeDownYellow();
+
+}
+void Lamp::swipeRightBlue() {
+  int s = 255;
+  for (int i = 0; i<6;i++){
+    setColumn(0,0,s,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setColumn(0,0,s,0);
+    }
+    
+    if (i > 64 && i < 319) {
+      setColumn(0,0,s+64,1);
+    }
+    if (i > 128 && i < 383) {
+      setColumn(0,0,s+128,2);
+    }
+    if (i > 192 && i < 447) {
+      setColumn(0,0,s+192,3);
+    }
+    if (i > 256 && i < 511) {
+      setColumn(0,0,s+256,4);
+    }
+    if (i > 320) {
+      setColumn(0,0,s+320,5);
+    }
+    showAll();
+    delay(3);
+  }
+}
+void Lamp::swipeLeftRed() {
+  int s = 255;
+  for (int i = 6; i>=0;i--){
+    setColumn(s,0,0,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setColumn(s,0,0,5);
+    }
+    
+    if (i > 64 && i < 319) {
+      setColumn(s+64,0,0,4);
+    }
+    if (i > 128 && i < 383) {
+      setColumn(s+128,0,0,3);
+    }
+    if (i > 192 && i < 447) {
+      setColumn(s+192,0,0,2);
+    }
+    if (i > 256 && i < 511) {
+      setColumn(s+256,0,0,1);
+    }
+    if (i > 320) {
+      setColumn(s+320,0,0,0);
+    }
+    showAll();
+    delay(3);
+  }
+}
+void Lamp::swipeUpGreen() {
+  int s = 255;
+  for (int i = 0; i<6;i++){
+    setRow(0,s,0,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setRow(0,s,0,0);
+    }
+    
+    if (i > 64 && i < 319) {
+      setRow(0,s+64,0,1);
+    }
+    if (i > 128 && i < 383) {
+      setRow(0,s+128,0,2);
+    }
+    if (i > 192 && i < 447) {
+      setRow(0,s+192,0,3);
+    }
+    if (i > 256 && i < 511) {
+      setRow(0,s+256,0,4);
+    }
+    if (i > 320) {
+      setRow(0,s+320,0,5);
+    }
+    showAll();
+    delay(3);
+  }
+}
+void Lamp::swipeDownPurple() {
+  int s = 255;
+  for (int i = 5; i>=0;i--){
+    setRow(s,0,s,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setRow(s,0,s,5);
+    }
+    
+    if (i > 64 && i < 319) {
+      setRow(s+64,0,s+64,4);
+    }
+    if (i > 128 && i < 383) {
+      setRow(s+128,0,s+128,3);
+    }
+    if (i > 192 && i < 447) {
+      setRow(s+192,0,s+192,2);
+    }
+    if (i > 256 && i < 511) {
+      setRow(s+256,0,s+256,1);
+    }
+    if (i > 320) {
+      setRow(s+320,0,s+320,0);
+    }
+    showAll();
+    delay(3);
+  }
+}
+void Lamp::swipeRightCyan() {
+  int s = 255;
+  for (int i = 0; i<6;i++){
+    setColumn(0,s,s,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setColumn(0,s,s,0);
+    }
+    
+    if (i > 64 && i < 319) {
+      setColumn(0,s+64,s+64,1);
+    }
+    if (i > 128 && i < 383) {
+      setColumn(0,s+128,s+128,2);
+    }
+    if (i > 192 && i < 447) {
+      setColumn(0,s+192,s+192,3);
+    }
+    if (i > 256 && i < 511) {
+      setColumn(0,s+256,s+256,4);
+    }
+    if (i > 320) {
+      setColumn(0,s+320,s+320,5);
+    }
+    showAll();
+    delay(3);
+  }
+}
+void Lamp::swipeLeftYellow() {
+  int s = 255;
+  for (int i = 6; i>=0;i--){
+    setColumn(s,s,0,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setColumn(s,s,0,5);
+    }
+    
+    if (i > 64 && i < 319) {
+      setColumn(s+64,s+64,0,4);
+    }
+    if (i > 128 && i < 383) {
+      setColumn(s+128,s+128,0,3);
+    }
+    if (i > 192 && i < 447) {
+      setColumn(s+192,s+192,0,2);
+    }
+    if (i > 256 && i < 511) {
+      setColumn(s+256,s+256,0,1);
+    }
+    if (i > 320) {
+      setColumn(s+320,s+320,0,0);
+    }
+    showAll();
+    delay(3);
+  }
+}
+
+void Lamp::swipeUpBlue() {
+  int s = 255;
+  for (int i = 0; i<6;i++){
+    setRow(0,0,s,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setRow(0,0,s,0);
+    }
+    
+    if (i > 64 && i < 319) {
+      setRow(0,0,s+64,1);
+    }
+    if (i > 128 && i < 383) {
+      setRow(0,0,s+128,2);
+    }
+    if (i > 192 && i < 447) {
+      setRow(0,0,s+192,3);
+    }
+    if (i > 256 && i < 511) {
+      setRow(0,0,s+256,4);
+    }
+    if (i > 320) {
+      setRow(0,0,s+320,5);
+    }
+    showAll();
+    delay(3);
+  }
+}
+void Lamp::swipeDownRed() {
+  int s = 255;
+  for (int i = 5; i>=0;i--){
+    setRow(s,0,0,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setRow(s,0,0,5);
+    }
+    
+    if (i > 64 && i < 319) {
+      setRow(s+64,0,0,4);
+    }
+    if (i > 128 && i < 383) {
+      setRow(s+128,0,0,3);
+    }
+    if (i > 192 && i < 447) {
+      setRow(s+192,0,0,2);
+    }
+    if (i > 256 && i < 511) {
+      setRow(s+256,0,0,1);
+    }
+    if (i > 320) {
+      setRow(s+320,0,0,0);
+    }
+    showAll();
+    delay(3);
+  }
+}
+void Lamp::swipeRightGreen() {
+  int s = 255;
+  for (int i = 0; i<6;i++){
+    setColumn(0,s,0,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setColumn(0,s,0,0);
+    }
+    
+    if (i > 64 && i < 319) {
+      setColumn(0,s+64,0,1);
+    }
+    if (i > 128 && i < 383) {
+      setColumn(0,s+128,0,2);
+    }
+    if (i > 192 && i < 447) {
+      setColumn(0,s+192,0,3);
+    }
+    if (i > 256 && i < 511) {
+      setColumn(0,s+256,0,4);
+    }
+    if (i > 320) {
+      setColumn(0,s+320,0,5);
+    }
+    showAll();
+    delay(3);
+  }
+}
+void Lamp::swipeLeftPurple() {
+  int s = 255;
+  for (int i = 6; i>=0;i--){
+    setColumn(s,0,s,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setColumn(s,0,s,5);
+    }
+    
+    if (i > 64 && i < 319) {
+      setColumn(s+64,0,s+64,4);
+    }
+    if (i > 128 && i < 383) {
+      setColumn(s+128,0,s+128,3);
+    }
+    if (i > 192 && i < 447) {
+      setColumn(s+192,0,s+192,2);
+    }
+    if (i > 256 && i < 511) {
+      setColumn(s+256,0,s+256,1);
+    }
+    if (i > 320) {
+      setColumn(s+320,0,s+320,0);
+    }
+    showAll();
+    delay(3);
+  }
+}
+void Lamp::swipeUpCyan() {
+  int s = 255;
+  for (int i = 0; i<6;i++){
+    setRow(0,s,s,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setRow(0,s,s,0);
+    }
+    
+    if (i > 64 && i < 319) {
+      setRow(0,s+64,s+64,1);
+    }
+    if (i > 128 && i < 383) {
+      setRow(0,s+128,s+128,2);
+    }
+    if (i > 192 && i < 447) {
+      setRow(0,s+192,s+192,3);
+    }
+    if (i > 256 && i < 511) {
+      setRow(0,s+256,s+256,4);
+    }
+    if (i > 320) {
+      setRow(0,s+320,s+320,5);
+    }
+    showAll();
+    delay(3);
+  }
+}
+void Lamp::swipeDownYellow() {
+  int s = 255;
+  for (int i = 5; i>=0;i--){
+    setRow(0,s,s,i);
+    showAll();
+    delay(100);
+  }
+  for (int i = 0; i <575;i++) {
+    s--;
+    if (i < 255) {
+      setRow(s,s,0,5);
+    }
+    
+    if (i > 64 && i < 319) {
+      setRow(s+64,s+64,0,4);
+    }
+    if (i > 128 && i < 383) {
+      setRow(s+128,s+128,0,3);
+    }
+    if (i > 192 && i < 447) {
+      setRow(s+192,s+192,0,2);
+    }
+    if (i > 256 && i < 511) {
+      setRow(s+256,s+256,0,1);
+    }
+    if (i > 320) {
+      setRow(s+320,s+320,0,0);
+    }
+    showAll();
+    delay(3);
   }
 }
