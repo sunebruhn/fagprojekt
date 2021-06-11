@@ -14,7 +14,6 @@
 //  Definitions and globals
 
 Lamp lamp;
-Settings lampSettings;
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
@@ -79,6 +78,7 @@ void setup()
   });
 
   server.begin();
+
 }
 
 //  LL         OOOOOO    OOOOOO   PPPPPPP
@@ -90,10 +90,8 @@ void setup()
 //  LLLLLLLL   OOOOOO    OOOOOO   PP
 
 void loop() {
-  loadSettings(SPIFFS, "/settings.txt", lampSettings);
-  Serial.println(lampSettings.state);
-  if((bool)lampSettings.state){
+  while(lamp.state)
+  {
     lamp.checkleds();
   }
-  vTaskDelay(1000);
 }

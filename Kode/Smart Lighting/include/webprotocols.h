@@ -8,7 +8,6 @@
 #include "wifiprotocols.h"
 #include "files.h"
 #include "lamp.h"
-#include "settings.h"
 
 enum identifiers{NO_ID, WIFI_CONFIG, ON_OFF_SWITCH, SET_COLOUR};
 

@@ -81,13 +81,14 @@ void handleData(char* data, size_t len){
       );
     break;
   case ON_OFF_SWITCH:
-    Settings settings;
-    // Copy values from the JsonDocument to the Config
-    strlcpy(settings.state,          // <- destination
-            doc["state"] | "0",     // <- source
-            sizeof(settings.state)); // <- destination's capacity
-    saveSettings(SPIFFS, "/settings.txt", settings);
+  {
+    Lamp tmpLamp;
+    tmpLamp.state = doc["state"];
+    Serial.print("the test ");
+    Serial.println(tmpLamp.state);
+  }  
     break;
+  
   case SET_COLOUR:
     Serial.println();
     break;

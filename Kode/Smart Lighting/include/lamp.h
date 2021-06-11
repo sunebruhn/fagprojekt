@@ -8,6 +8,9 @@
 class Lamp
 {
     public:
+
+        static bool state;
+
         Adafruit_NeoPixel strip_a;
         Adafruit_NeoPixel strip_b;
         Adafruit_NeoPixel strip_c;

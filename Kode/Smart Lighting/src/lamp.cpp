@@ -1,5 +1,7 @@
 #include "lamp.h"
 
+bool Lamp::state = 0;
+
 void Lamp::around(int32_t r, int32_t g, int32_t b) {
   int32_t checker = 0;
   checker = 0;
