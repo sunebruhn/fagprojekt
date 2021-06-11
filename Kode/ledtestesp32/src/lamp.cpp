@@ -306,3 +306,23 @@ void Lamp::water(){
  
   }
 }
+
+void Lamp::randomLights(){
+  for(int i = 0; i < 6; i++){
+    strip_a.setPixelColor(i,random8(),random8(),random8());
+    strip_b.setPixelColor(i,random8(),random8(),random8());
+    strip_c.setPixelColor(i,random8(),random8(),random8());
+    strip_d.setPixelColor(i,random8(),random8(),random8());
+    strip_e.setPixelColor(i,random8(),random8(),random8());
+    strip_f.setPixelColor(i,random8(),random8(),random8()); 
+
+  }
+
+strip_a.show();
+strip_b.show();
+strip_c.show();
+strip_d.show();
+strip_e.show();
+strip_f.show();
+delay(80);
+}

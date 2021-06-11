@@ -46,6 +46,7 @@ class Lamp
         void circle();
         void runAround();
         void water();
+        void randomLights();
         int waterInt[36][3] = {
 {240,248,255},
 {230,230,250},

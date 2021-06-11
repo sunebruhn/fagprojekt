@@ -10,6 +10,6 @@ void setup() {
 
 
 void loop(){
-  myLamp.checkleds();
+  myLamp.randomLights();
 }
 
