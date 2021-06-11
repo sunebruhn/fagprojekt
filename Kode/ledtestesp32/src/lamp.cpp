@@ -1,6 +1,5 @@
 #include "lamp.h"
 
-
 void Lamp::squareFour(int r, int g, int b, int corner) { //tænder en af fire blokke, eller alle blokke
 if (corner == 0){
   for(int i = 0; i < 3; i++){
@@ -208,4 +207,54 @@ void Lamp::colorFlow() { //Går langsomt igennem all farver
     showAll();
     delay(100);
   }
+}
+
+void Lamp::rainbowStrideColumn(){
+  for(int i = 0; i < 20; i++){
+    setColumn(9, 235, 5,(i%6));
+    delay(10);
+    setColumn(235, 231, 5,(i+1)%6);
+    delay(10);
+    setColumn(5, 235, 224,(i+2)%6);
+    delay(10);
+    setColumn(5, 81, 245,(i+3)%6);
+    delay(10);
+    setColumn(177, 5, 245,(i+4)%6);
+    delay(10);
+    setColumn(245, 5, 17,(i+5)%6);
+    delay(10);
+    setColumn(245, 93, 5,(i+6)%6);
+    delay(10);
+    
+  }
+  
+
+
+}
+
+
+void Lamp::rainbowStrideRow(){
+
+  int colors[][3] = {{9, 235, 5},{235, 231, 5},{5, 235, 224},{5, 81, 245},{177, 5, 245},{245, 5, 17}};
+
+  for(int i = 0; i < 20; i++){
+    setRow(9, 235, 5,(i%6));
+    delay(10);
+    setRow(235, 231, 5,(i+1)%6);
+    delay(10);
+    setRow(5, 235, 224,(i+2)%6);
+    delay(10);
+    setRow(5, 81, 245,(i+3)%6);
+    delay(10);
+    setRow(177, 5, 245,(i+4)%6);
+    delay(10);
+    setRow(245, 5, 17,(i+5)%6);
+    delay(10);
+    setRow(245, 93, 5,(i+6)%6);
+    delay(10);
+    
+  }
+  
+
+
 }

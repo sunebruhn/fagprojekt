@@ -38,13 +38,15 @@ class Lamp
         }
         void squareFour(int r, int g, int b, int corner);
         void runAround();
-        void water();
+       // void water();
         void randomLights();
         void colorFlow();
         void setRow(int r, int g, int b, int strip);
         void setColumn(int r, int g, int b, int column);
         void showAll();
         void swipe();
+        void rainbowStrideColumn();
+        void rainbowStrideRow();
 
 };
 #endif
