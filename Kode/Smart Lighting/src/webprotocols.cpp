@@ -1,6 +1,6 @@
 #include "webprotocols.h"
 
-void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
+void onWsEvent[lamp](AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
 
   switch (type)
   {
@@ -80,7 +80,12 @@ void handleData(char* data, size_t len){
       NULL             // Task handle
       );
     break;
-  
+  case ON_OFF_SWITCH:
+    
+    break;
+  case SET_COLOUR:
+
+    break;
   default:
     break;
   }

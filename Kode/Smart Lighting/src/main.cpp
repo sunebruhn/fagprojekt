@@ -43,7 +43,7 @@ void setup()
   
   //  Web server protocols
 
-  ws.onEvent(onWsEvent);
+  ws.onEvent(onWsEvent[lamp]);
   server.addHandler(&ws);
   server.addHandler(new CaptiveRequestHandler()).setFilter(ON_AP_FILTER);
 
