@@ -44,6 +44,18 @@ class Lamp
         void setRow(int r, int g, int b, int strip);
         void setColumn(int r, int g, int b, int column);
         void showAll();
+        void swipeRightBlue();
+        void swipeLeftRed();
+        void swipeUpGreen();
+        void swipeDownPurple();
+        void swipeRightCyan();
+        void swipeLeftYellow();
+        void swipeUpBlue();
+        void swipeDownRed();
+        void swipeRightGreen();
+        void swipeLeftPurple();
+        void swipeUpCyan();
+        void swipeDownYellow();
         void swipe();
         void rainbowStrideColumn();
         void rainbowStrideRow();
