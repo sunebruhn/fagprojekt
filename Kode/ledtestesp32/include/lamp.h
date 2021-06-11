@@ -36,14 +36,7 @@ class Lamp
             strip_e.setBrightness(64);
             strip_f.setBrightness(64);
         }
-        void around(int32_t r, int32_t g, int32_t b);
-        void uniformcolor(int32_t r, int32_t g, int32_t b);
         void squareFour(int r, int g, int b, int corner);
-        void checkleds();
-        void checkcolor();
-        void rainbow();
-        void cascade();
-        void circle();
         void runAround();
         void water();
         void randomLights();
