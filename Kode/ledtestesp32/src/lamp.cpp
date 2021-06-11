@@ -1,7 +1,7 @@
 #include "lamp.h"
 
 
-void Lamp::squareFour(int r, int g, int b, int corner) {
+void Lamp::squareFour(int r, int g, int b, int corner) { //tænder en af fire blokke, eller alle blokke
 if (corner == 0){
   for(int i = 0; i < 3; i++){
   strip_a.setPixelColor(i,r,g,b);
@@ -53,7 +53,7 @@ strip_e.show();
 strip_f.show();
 }
 
-void Lamp::runAround(){
+void Lamp::runAround(){ //bevæger sig rundt i 4 blokke
   squareFour(0,255,255,2);
   squareFour(255,255,255,3);
   squareFour(255,255,255,1);
@@ -98,7 +98,7 @@ void Lamp::water(){
   }
 }
 
-void Lamp::randomLights(){
+void Lamp::randomLights(){ // Tilfældige lys blinker hurtigt
 
   for(int i = 0; i < 6; i++){
     strip_a.setPixelColor(i,random8(),random8(),random8());
