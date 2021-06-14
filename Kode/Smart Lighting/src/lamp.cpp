@@ -4,6 +4,8 @@ bool Lamp::state = 0;
 int32_t Lamp::r = 64;
 int32_t Lamp::g = 64;
 int32_t Lamp::b = 64;
+enum lampMode Lamp::mode = OFF;
+bool Lamp::isSet = 1;
 
 void Lamp::squareFour(int r, int g, int b, int corner) { //tænder en af fire blokke, eller alle blokke
 if (corner == 0){

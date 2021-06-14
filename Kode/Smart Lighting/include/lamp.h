@@ -6,12 +6,17 @@
 
 #define NUMPIXELS  6
 
+enum lampMode{OFF, UNIFORM, SWIPE};
+
 class Lamp
 {
     public:
 
         static bool state;
         static int32_t r, g, b;
+        static enum lampMode mode;
+        static bool isSet;
+        TaskHandle_t taskHandle;
 
         Adafruit_NeoPixel strip_a;
         Adafruit_NeoPixel strip_b;

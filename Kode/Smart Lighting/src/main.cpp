@@ -90,9 +90,48 @@ void setup()
 //  LLLLLLLL   OOOOOO    OOOOOO   PP
 
 void loop() {
+  /* Bare-bones implementation
   while(lamp.state)
   {
     lamp.swipe();
   }
   lamp.squareFour(0,0,0,4);
+  */
+
+  if(lamp.isSet){
+    return; // do nothing
+  }
+  
+  if(!lamp.state) // turn off program if lamp is not supposed to be on
+  {
+    vTaskDelete(lamp.taskHandle);
+    lamp.isSet = 1;
+    return;
+  }
+
+  // if lamp is on and not already set, set according to mode
+  switch (lamp.mode)
+  {
+  case OFF:
+    Serial.println("no mode set");
+    lamp.isSet = 1;
+    break;
+  case UNIFORM:
+  {
+    lamp.squareFour(lamp.r, lamp.g, lamp.b, 4);
+    lamp.isSet = 1;
+  }
+  case SWIPE:
+  {
+    xTaskCreate(
+      lamp.swipe,     // task function
+      "Handle Client Connections", // task name
+      1024,                        // stack size
+      (void *)&ws,                 // parameters passed
+      0,                           // priority
+      NULL);                       // handler
+  }
+  default:
+    break;
+  }
 }

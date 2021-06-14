@@ -95,10 +95,18 @@ void handleData(char* data, size_t len){
       tmpLamp.r = doc["r"];
       tmpLamp.g = doc["g"];
       tmpLamp.b = doc["b"];
+      tmpLamp.mode = lampMode::UNIFORM;
       Serial.print("the test ");
       Serial.print(tmpLamp.r);
       Serial.print(tmpLamp.g);
       Serial.println(tmpLamp.b);
+    }
+    break;
+  case SWIPE:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::SWIPE;
+      Serial.println("swipe mode");
     }
     break;
   default:
