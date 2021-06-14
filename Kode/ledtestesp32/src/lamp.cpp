@@ -731,3 +731,158 @@ void Lamp::heart() {
   delay(pulse);
 
 }
+
+void Lamp::tronRunner(){
+
+  for(int j = 0; j < 6; j++){
+    int r = random8()%50;
+    int g = random8()%50;
+    int b = random8()%210 + 40;
+
+    if(j == 0){
+      for(int i = 0; i < 6; i++){
+        strip_a.setPixelColor(i,r,g,b);
+        showAll();
+      delay(100);
+      }
+    }
+        if(j == 3){
+      for(int i = 0; i < 6; i++){
+        strip_b.setPixelColor(i,r,g,b);
+        showAll();
+        delay(100);
+      }
+    }
+        if(j == 5){
+      for(int i = 0; i < 6; i++){
+        strip_c.setPixelColor(i,r,g,b);
+        showAll();
+        delay(100);
+      }
+    }
+    if(j == 1){
+      for(int i = 0; i < 6; i++){
+        strip_d.setPixelColor(i,r,g,b);
+        showAll();
+        delay(100);
+      }
+    }
+        if(j == 2){
+      for(int i = 0; i < 6; i++){
+        strip_e.setPixelColor(i,r,g,b);
+        showAll();
+        delay(100);
+      }
+    }
+        if(j == 5){
+      for(int i = 0; i < 6; i++){
+        strip_f.setPixelColor(i,r,g,b);
+        showAll();
+        delay(100);
+      }
+    }
+  }
+
+
+}
+
+void Lamp::individual(int r, int g, int b, int x, int y){
+  if(x == 0){
+    strip_a.setPixelColor(y,r,g,b);
+  }
+
+   if(x == 1){
+    strip_b.setPixelColor(y,r,g,b);
+  }
+
+   if(x == 2){
+    strip_c.setPixelColor(y,r,g,b);
+  }
+
+   if(x == 3){
+    strip_d.setPixelColor(y,r,g,b);
+  }
+
+   if(x == 4){
+    strip_e.setPixelColor(y,r,g,b);
+  }
+
+   if(x == 5){
+    strip_f.setPixelColor(y,r,g,b);
+  }
+
+
+}
+
+void Lamp::circle(int r, int g, int b, int x, int y){
+  individual(r,g,b,x,y);
+  showAll();
+  delay(150);
+
+  squareFour(0,0,0,4);
+  showAll();
+  for(int i = -1; i < 0; i++){
+        individual(r,g,b,x+i,y);
+        individual(r,g,b,x,y+i);
+        individual(r,g,b,x+i,y+i); 
+        individual(r,g,b,x-i,y);
+        individual(r,g,b,x,y-i);
+        individual(r,g,b,x-i,y-i); 
+        individual(r,g,b,x+i,y-i);
+        individual(r,g,b,x-i,y+i);             
+  }
+    for(int i = 1; i < 2; i++){
+        individual(r,g,b,x+i,y);
+        individual(r,g,b,x,y+i);
+        individual(r,g,b,x+i,y+i); 
+        individual(r,g,b,x-i,y);
+        individual(r,g,b,x,y-i);
+        individual(r,g,b,x-i,y-i); 
+        individual(r,g,b,x+i,y-i);
+        individual(r,g,b,x-i,y+i);             
+  }
+    showAll();
+  delay(150);
+  squareFour(0,0,0,4);
+  showAll();
+
+
+  setRow(r,g,b,x+2);
+  setRow(r,g,b,x-2);
+  setColumn(r,g,b,y-2);
+  setColumn(r,g,b,y+2);
+
+  setRow(0,0,0,x+3);
+  setRow(0,0,0,x-3);
+  setColumn(0,0,0,y+3);
+  setColumn(0,0,0,y-3);
+
+  individual(0,0,0,x+2,y+2);
+  individual(0,0,0,x-2,y-2);
+  individual(0,0,0,x+2,y-2);
+  individual(0,0,0,x-2,y+2);
+
+  showAll();
+  delay(150);
+  squareFour(0,0,0,4);
+  showAll();
+
+  setRow(r,g,b,x+3);
+  setRow(r,g,b,x-3);
+  setColumn(r,g,b,y+3);
+  setColumn(r,g,b,y-3);
+  individual(0,0,0,x+3,y+3);
+  individual(0,0,0,x-3,y-3);
+  individual(0,0,0,x+3,y-3);
+  individual(0,0,0,x-3,y+3);
+
+  showAll();
+  delay(150);
+  squareFour(0,0,0,4);
+  showAll();
+
+
+
+
+
+}

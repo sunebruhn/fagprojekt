@@ -60,6 +60,10 @@ class Lamp
         void rainbowStrideColumn();
         void rainbowStrideRow();
         void heart();
+        void tronRunner();
+        void individual(int r, int g, int b, int x, int y);
+        void circle(int r, int g, int b, int x, int y);
+        
 
 };
 #endif
