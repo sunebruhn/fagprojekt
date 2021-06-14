@@ -80,7 +80,27 @@ void handleData(char* data, size_t len){
       NULL             // Task handle
       );
     break;
+  case ON_OFF_SWITCH:
+  {
+    Lamp tmpLamp;
+    tmpLamp.state = doc["state"];
+    Serial.print("the test ");
+    Serial.println(tmpLamp.state);
+  }  
+    break;
   
+  case SET_COLOUR:
+    {
+      Lamp tmpLamp;
+      tmpLamp.r = doc["r"];
+      tmpLamp.g = doc["g"];
+      tmpLamp.b = doc["b"];
+      Serial.print("the test ");
+      Serial.print(tmpLamp.r);
+      Serial.print(tmpLamp.g);
+      Serial.println(tmpLamp.b);
+    }
+    break;
   default:
     break;
   }

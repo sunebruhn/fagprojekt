@@ -1,8 +1,9 @@
 @font-face {
-  font-family: 'walter';
-  src: url(font/Walter-Regular.ttf);
+  font-family: 'walterregular';
+  src: url('walter-regular-webfont.woff2') format('woff2'),
+       url('walter-regular-webfont.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
-  font-weight: 100;
 }
 
 /* This is the body of the website, being applied to everything */
@@ -26,7 +27,7 @@ body  {
 
 /* Applies to the title, duh */
 .title  {
-  font-family: walter;
+  font-family: 'walterregular';
   font-size: 100px;
   text-align: center;
   padding-top: 20px;
@@ -149,7 +150,7 @@ input {
 }
 
 .config-title  {
-  font-family: walter;
+  font-family: 'walterregular';
   font-size: 60px;
   padding-bottom: 15px;
 }

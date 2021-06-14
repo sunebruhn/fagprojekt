@@ -27,10 +27,12 @@
         <button id="buttonLED" class="button button1" onclick="LEDswitch('buttonLED')">On</button>
       </div>
 
+      <!--
       <div class="middlemid">
         <div> The strength of the LED is <span id="LEDvalue"></span>%</div>
         <input type="range" min="1" max="100" value="50" class="slider" id="LEDstrength">
       </div>
+      -->
 
       <div class="middlebottom">
         <div> Choose the color of the light </div>
@@ -47,6 +49,7 @@
 
   <!-- The script below it to handle the changing slider value and send data upon change -->
   <script>
+  <!-- The script below it to handle the changing slider value
     var slider = document.getElementById('LEDstrength');
     var output = document.getElementById('LEDvalue');
     output.innerHTML = slider.value;
@@ -56,7 +59,9 @@
     slider.onchange = function()  {
       console.log(this.value);
     }
+    -->
 
+    <script>
     var backRGB = document.getElementById("colorpicker").value;
     document.getElementById("colorpicker").onchange = function()  {
       backRGB = this.value;

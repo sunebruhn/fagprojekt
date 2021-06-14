@@ -7,8 +7,9 @@
 #include "wificonfig.h"
 #include "wifiprotocols.h"
 #include "files.h"
+#include "lamp.h"
 
-enum identifiers{NO_ID, WIFI_CONFIG};
+enum identifiers{NO_ID, WIFI_CONFIG, ON_OFF_SWITCH, SET_COLOUR};
 
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len);
 

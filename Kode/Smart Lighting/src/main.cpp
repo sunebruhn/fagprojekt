@@ -9,8 +9,11 @@
 #include "wificonfig.h"
 #include "wifiprotocols.h"
 #include "webprotocols.h"
+#include "lamp.h"
 
 //  Definitions and globals
+
+Lamp lamp;
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
@@ -52,13 +55,9 @@ void setup()
       0,                           // priority
       NULL);                       // handler
 
-  // Route for root / web page
+  // Send data to webpage
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-    /*if (ON_AP_FILTER(request))
-    {
-      request->send(SPIFFS, "/config_page.html");
-    }*/
     request->send(SPIFFS, "/index.html");
   });
 
@@ -79,6 +78,7 @@ void setup()
   });
 
   server.begin();
+
 }
 
 //  LL         OOOOOO    OOOOOO   PPPPPPP
@@ -89,4 +89,10 @@ void setup()
 //  LL        OO    OO  OO    OO  PP
 //  LLLLLLLL   OOOOOO    OOOOOO   PP
 
-void loop() {}
+void loop() {
+  while(lamp.state)
+  {
+    lamp.swipe();
+  }
+  lamp.squareFour(0,0,0,4);
+}

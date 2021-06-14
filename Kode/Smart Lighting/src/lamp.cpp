@@ -1,5 +1,10 @@
 #include "lamp.h"
 
+bool Lamp::state = 0;
+int32_t Lamp::r = 64;
+int32_t Lamp::g = 64;
+int32_t Lamp::b = 64;
+
 void Lamp::squareFour(int r, int g, int b, int corner) { //tænder en af fire blokke, eller alle blokke
 if (corner == 0){
   for(int i = 0; i < 3; i++){
@@ -672,13 +677,9 @@ void Lamp::swipeDownYellow() {
   }
 }
 
-void Lamp::clearAll() {
-  squareFour(0,0,0,4);
-}
-
 void Lamp::heart() {
   int pulse = 50;
-  strip_a.setPixelColor(2,r,g,b);
+  strip_a.setPixelColor(2,255,105,180);
   strip_a.setPixelColor(3,255,105,180);
   strip_b.setPixelColor(1,255,105,180);
   strip_b.setPixelColor(2,255,105,180);
