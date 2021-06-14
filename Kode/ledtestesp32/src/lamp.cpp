@@ -672,9 +672,13 @@ void Lamp::swipeDownYellow() {
   }
 }
 
+void Lamp::clearAll() {
+  squareFour(0,0,0,4);
+}
+
 void Lamp::heart() {
   int pulse = 50;
-  strip_a.setPixelColor(2,255,105,180);
+  strip_a.setPixelColor(2,r,g,b);
   strip_a.setPixelColor(3,255,105,180);
   strip_b.setPixelColor(1,255,105,180);
   strip_b.setPixelColor(2,255,105,180);
