@@ -38,31 +38,34 @@
       <div class="middlebottom">
         <div> Choose the color of the light </div>
           <div>
-            <input type="color" id="colorpicker" value="#f6b73c">
+            <input type="color" id="colorpicker" value="#FF0000">
           </div>
       </div>
 
-      <!--
       <div class="middlebottom">
-        <div> Pattern customizer </div>
-        <button id="button1" class="button buttonMatrix1" onclick="MatrixState('button1')"> </button>
-        <button id="button2" class="button buttonMatrix2" onclick="MatrixState('button2')"> </button>
-        <button id="button3" class="button buttonMatrix3" onclick="MatrixState('button3')"> </button>
-        <button id="button4" class="button buttonMatrix4" onclick="MatrixState('button4')"> </button> <br>
-        <button id="button5" class="button buttonMatrix5" onclick="MatrixState('button5')"> </button>
-        <button id="button6" class="button buttonMatrix6" onclick="MatrixState('button6')"> </button>
-        <button id="button7" class="button buttonMatrix7" onclick="MatrixState('button7')"> </button>
-        <button id="button8" class="button buttonMatrix8" onclick="MatrixState('button8')"> </button> <br>
-        <button id="button9" class="button buttonMatrix9" onclick="MatrixState('button9')"> </button>
-        <button id="button10" class="button buttonMatrix10" onclick="MatrixState('button10')"> </button>
-        <button id="button11" class="button buttonMatrix11" onclick="MatrixState('button11')"> </button>
-        <button id="button12" class="button buttonMatrix12" onclick="MatrixState('button12')"> </button> <br>
-        <button id="button13" class="button buttonMatrix12" onclick="MatrixState('button13')"> </button>
-        <button id="button14" class="button buttonMatrix13" onclick="MatrixState('button14')"> </button>
-        <button id="button15" class="button buttonMatrix14" onclick="MatrixState('button15')"> </button>
-        <button id="button16" class="button buttonMatrix15" onclick="MatrixState('button16')"> </button>
+        <div> Patterns </div>
+        <button id="button1" class="button buttonMatrix1" onclick="preset1('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px;"> Rainbow </button> <br>
+
+        <button id="button2" class="button buttonMatrix2" onclick="preset2('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px;"> Heartbeat </button> <br>
+
+        <button id="button3" class="button buttonMatrix3" onclick="preset3('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px;"> Waves </button> <br>
+
+        <button id="button4" class="button buttonMatrix4" onclick="preset4('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px;"> name </button> <br>
+
+        <button id="button5" class="button buttonMatrix5" onclick="preset5('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px;"> name </button> <br>
+
+        <button id="button6" class="button buttonMatrix6" onclick="preset6('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px;"> name </button> <br>
+
+        <button id="button7" class="button buttonMatrix7" onclick="preset7('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px;"> name </button> <br>
+
       </div>
-      -->
 
       <!-- This will be the place to honor the authors -->
       <div class="bottom">
@@ -70,17 +73,6 @@
       </div>
     </div>
 
-  <!-- The script below it to handle the changing slider value
-    var slider = document.getElementById('LEDstrength');
-    var output = document.getElementById('LEDvalue');
-    output.innerHTML = slider.value;
-    slider.oninput = function() {
-      output.innerHTML = this.value;
-    }
-    slider.onchange = function()  {
-      console.log(this.value);
-    }
-    -->
 
     <script>
     var backRGB = document.getElementById("colorpicker").value;
