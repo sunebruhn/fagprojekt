@@ -12,7 +12,12 @@ void setup() {
 
 
 void loop(){
+ 
+  myLamp.circleReal();
   myLamp.rainbowStrideColumn();
   myLamp.rainbowStrideRow();
+  myLamp.heart();
+  
+  //myLamp.squareFour(myLamp.r,myLamp.g,myLamp.b,0);
 }
 
