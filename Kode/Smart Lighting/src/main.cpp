@@ -55,7 +55,7 @@ void setup()
       0,                           // priority
       NULL);                       // handler
 
-  // Route for root / web page
+  // Send data to webpage
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
     request->send(SPIFFS, "/index.html");
@@ -92,13 +92,7 @@ void setup()
 void loop() {
   while(lamp.state)
   {
-    Serial.println("så langt så godt");
-    Serial.print("r = ");
-    Serial.println(lamp.r);
-    Serial.print("r = ");
-    Serial.println(lamp.g);
-    Serial.print("r = ");
-    Serial.println(lamp.b);
-    lamp.squareFour(lamp.r, lamp.g, lamp.b, 4);
+    lamp.swipe();
   }
+  lamp.squareFour(0,0,0,4);
 }

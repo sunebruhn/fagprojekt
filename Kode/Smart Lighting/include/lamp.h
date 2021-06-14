@@ -2,6 +2,7 @@
 #define lamp_h
 
 #include <Adafruit_NeoPixel.h>
+#include <FastLED.h>
 
 #define NUMPIXELS  6
 
@@ -39,15 +40,35 @@ class Lamp
             strip_e.setBrightness(64);
             strip_f.setBrightness(64);
         }
-        void around(int32_t r, int32_t g, int32_t b);
-        void uniformcolor(int32_t r, int32_t g, int32_t b);
+
+        // member functions
         void squareFour(int r, int g, int b, int corner);
-        void checkleds();
-        void checkcolor();
-        void rainbow();
-        void cascade();
-        void circle();
         void runAround();
+       // void water();
+        void randomLights();
+        void colorFlow();
+        void setRow(int r, int g, int b, int strip);
+        void setColumn(int r, int g, int b, int column);
+        void showAll();
+        void swipeRightBlue();
+        void swipeLeftRed();
+        void swipeUpGreen();
+        void swipeDownPurple();
+        void swipeRightCyan();
+        void swipeLeftYellow();
+        void swipeUpBlue();
+        void swipeDownRed();
+        void swipeRightGreen();
+        void swipeLeftPurple();
+        void swipeUpCyan();
+        void swipeDownYellow();
+        void swipe();
+        void rainbowStrideColumn();
+        void rainbowStrideRow();
+        void heart();
+        void tronRunner();
+        void individual(int r, int g, int b, int x, int y);
+        void circle(int r, int g, int b, int x, int y);
 };
 
 #endif
