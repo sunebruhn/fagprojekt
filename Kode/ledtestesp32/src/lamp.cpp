@@ -673,6 +673,7 @@ void Lamp::clearAll() {
 
 void Lamp::heart() {
   int pulse = 50;
+  clearAll();
   strip_a.setPixelColor(2,r,g,b);
   strip_a.setPixelColor(3,r,g,b);
   strip_b.setPixelColor(1,r,g,b);
@@ -890,7 +891,14 @@ void Lamp::circle(int r, int g, int b, int x, int y){
   showAll();
 
 
-
-
-
-}
+ }
+ void Lamp::uniform(){
+  for(int i = 0; i < 6; i++){
+    strip_a.setPixelColor(i,r,g,b);
+    strip_b.setPixelColor(i,r,g,b);
+    strip_c.setPixelColor(i,r,g,b);
+    strip_d.setPixelColor(i,r,g,b);
+    strip_e.setPixelColor(i,r,g,b);
+    strip_f.setPixelColor(i,r,g,b);
+  }
+ }
