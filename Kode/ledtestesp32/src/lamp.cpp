@@ -152,7 +152,6 @@ void Lamp::setRow(int r, int g, int b, int strip) { //tænder for en række med 
       strip_f.setPixelColor(i,r,g,b);
     }
   }
-  showAll();
   
 }
 
@@ -163,7 +162,6 @@ void Lamp::setColumn(int r, int g, int b, int column) {  //tænder en kollonne m
   strip_d.setPixelColor(column,r,g,b);
   strip_e.setPixelColor(column,r,g,b);
   strip_f.setPixelColor(column,r,g,b);
-  showAll();
 }
 
 void Lamp::showAll(){ //Shows all LED's
@@ -213,18 +211,25 @@ void Lamp::colorFlow() { //Går langsomt igennem all farver
 void Lamp::rainbowStrideColumn(){
   for(int i = 0; i < 20; i++){
     setColumn(9, 235, 5,(i%6));
+    showAll();
     delay(10);
     setColumn(235, 231, 5,(i+1)%6);
+    showAll();
     delay(10);
     setColumn(5, 235, 224,(i+2)%6);
+    showAll();
     delay(10);
     setColumn(5, 81, 245,(i+3)%6);
+    showAll();
     delay(10);
     setColumn(177, 5, 245,(i+4)%6);
+    showAll();
     delay(10);
     setColumn(245, 5, 17,(i+5)%6);
+    showAll();
     delay(10);
     setColumn(245, 93, 5,(i+6)%6);
+    showAll();
     delay(10);
     
   }
@@ -240,18 +245,25 @@ void Lamp::rainbowStrideRow(){
 
   for(int i = 0; i < 20; i++){
     setRow(9, 235, 5,(i%6));
+    showAll();
     delay(10);
     setRow(235, 231, 5,(i+1)%6);
+    showAll();
     delay(10);
     setRow(5, 235, 224,(i+2)%6);
+    showAll();
     delay(10);
     setRow(5, 81, 245,(i+3)%6);
+    showAll();
     delay(10);
     setRow(177, 5, 245,(i+4)%6);
+    showAll();
     delay(10);
     setRow(245, 5, 17,(i+5)%6);
+    showAll();
     delay(10);
     setRow(245, 93, 5,(i+6)%6);
+    showAll();
     delay(10);
     
   }
@@ -658,4 +670,64 @@ void Lamp::swipeDownYellow() {
     showAll();
     delay(2);
   }
+}
+
+void Lamp::heart() {
+  int pulse = 50;
+  strip_a.setPixelColor(2,255,105,180);
+  strip_a.setPixelColor(3,255,105,180);
+  strip_b.setPixelColor(1,255,105,180);
+  strip_b.setPixelColor(2,255,105,180);
+  strip_b.setPixelColor(3,255,105,180);
+  strip_b.setPixelColor(4,255,105,180);
+  setRow(255,105,180,2);
+  setRow(255,105,180,3);
+  setRow(255,105,180,4);
+  strip_f.setPixelColor(4,255,105,180);
+  strip_f.setPixelColor(1,255,105,180);
+  showAll();
+  delay(2500);
+  squareFour(0,0,0,4);
+  strip_b.setPixelColor(2,255,105,180);
+  strip_b.setPixelColor(3,255,105,180);
+  strip_c.setPixelColor(1,255,105,180);
+  strip_c.setPixelColor(2,255,105,180);
+  strip_c.setPixelColor(3,255,105,180);
+  strip_c.setPixelColor(4,255,105,180);
+  setRow(255,105,180,3);
+  strip_e.setPixelColor(4,255,105,180);
+  strip_e.setPixelColor(3,255,105,180);
+  strip_e.setPixelColor(2,255,105,180);
+  strip_e.setPixelColor(1,255,105,180);
+  showAll();
+  delay(pulse);
+  strip_d.setPixelColor(0,0,0,0);
+  strip_d.setPixelColor(5,0,0,0);
+  strip_e.setPixelColor(1,0,0,0);
+  strip_e.setPixelColor(4,0,0,0);
+  showAll();
+  delay(pulse);
+  setRow(0,0,0,1);
+  setRow(0,0,0,4);
+  setColumn(0,0,0,1);
+  setColumn(0,0,0,4);
+  showAll();
+  delay(600);
+  strip_b.setPixelColor(3,255,105,180);
+  strip_b.setPixelColor(2,255,105,180);
+  strip_c.setPixelColor(4,255,105,180);
+  strip_c.setPixelColor(1,255,105,180);
+  strip_d.setPixelColor(1,255,105,180);
+  strip_d.setPixelColor(4,255,105,180);
+  strip_e.setPixelColor(3,255,105,180);
+  strip_e.setPixelColor(2,255,105,180);
+  showAll();
+  delay(pulse);
+  strip_d.setPixelColor(0,255,105,180);
+  strip_d.setPixelColor(5,255,105,180);
+  strip_e.setPixelColor(1,255,105,180);
+  strip_e.setPixelColor(4,255,105,180);
+  showAll();
+  delay(pulse);
+
 }

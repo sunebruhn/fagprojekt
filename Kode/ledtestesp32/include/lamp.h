@@ -59,6 +59,7 @@ class Lamp
         void swipe();
         void rainbowStrideColumn();
         void rainbowStrideRow();
+        void heart();
 
 };
 #endif
