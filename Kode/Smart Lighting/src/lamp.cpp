@@ -1,6 +1,9 @@
 #include "lamp.h"
 
 bool Lamp::state = 0;
+int32_t Lamp::r = 64;
+int32_t Lamp::g = 64;
+int32_t Lamp::b = 64;
 
 void Lamp::around(int32_t r, int32_t g, int32_t b) {
   int32_t checker = 0;

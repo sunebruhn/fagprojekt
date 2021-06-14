@@ -3,13 +3,14 @@
 
 #include <Adafruit_NeoPixel.h>
 
-#define NUMPIXELS  36
+#define NUMPIXELS  6
 
 class Lamp
 {
     public:
 
         static bool state;
+        static int32_t r, g, b;
 
         Adafruit_NeoPixel strip_a;
         Adafruit_NeoPixel strip_b;

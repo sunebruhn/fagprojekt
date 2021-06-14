@@ -92,6 +92,13 @@ void setup()
 void loop() {
   while(lamp.state)
   {
-    lamp.checkleds();
+    Serial.println("så langt så godt");
+    Serial.print("r = ");
+    Serial.println(lamp.r);
+    Serial.print("r = ");
+    Serial.println(lamp.g);
+    Serial.print("r = ");
+    Serial.println(lamp.b);
+    lamp.squareFour(lamp.r, lamp.g, lamp.b, 4);
   }
 }

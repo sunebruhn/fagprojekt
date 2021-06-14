@@ -90,7 +90,16 @@ void handleData(char* data, size_t len){
     break;
   
   case SET_COLOUR:
-    Serial.println();
+    {
+      Lamp tmpLamp;
+      tmpLamp.r = doc["r"];
+      tmpLamp.g = doc["g"];
+      tmpLamp.b = doc["b"];
+      Serial.print("the test ");
+      Serial.print(tmpLamp.r);
+      Serial.print(tmpLamp.g);
+      Serial.println(tmpLamp.b);
+    }
     break;
   default:
     break;
