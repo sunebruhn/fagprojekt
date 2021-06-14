@@ -69,8 +69,6 @@ class Lamp
         void tronRunner();
         void individual(int r, int g, int b, int x, int y);
         void circle(int r, int g, int b, int x, int y);
-        void clearAll();
-        void circleReal();
 };
 
 #endif

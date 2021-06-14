@@ -48,31 +48,36 @@ if (corner == 4){
   strip_f.setPixelColor(i,r,g,b);
   }
 }
+
+strip_a.show();
+strip_b.show();
+strip_c.show();
+strip_d.show();
+strip_e.show();
+strip_f.show();
 }
-
-
 
 void Lamp::runAround(){ //bevæger sig rundt i 4 blokke
   squareFour(0,255,255,2);
   squareFour(255,255,255,3);
   squareFour(255,255,255,1);
   squareFour(255,255,255,0);
-  vTaskDelay(500);
+  delay(500);
   squareFour(255,255,255,2);
   squareFour(0,255,255,3);
   squareFour(255,255,255,1);
   squareFour(255,255,255,0);
-  vTaskDelay(500);
+  delay(500);
   squareFour(255,255,255,2);
   squareFour(255,255,255,3);
   squareFour(0,255,255,1);
   squareFour(255,255,255,0);
-  vTaskDelay(500);
+  delay(500);
   squareFour(255,255,255,2);
   squareFour(255,255,255,3);
   squareFour(255,255,255,1);
   squareFour(0,255,255,0);
-  vTaskDelay(500);
+  delay(500);
 
 }
 /*
@@ -92,7 +97,7 @@ void Lamp::water(){
         strip_e.setPixelColor(j,waterInt[i+(randE%(10*j))][0],waterInt[i+(randE%(10*j))][1],waterInt[i+(randE%(10*j))][2]);
         strip_f.setPixelColor(j,waterInt[i+(randF%(10*j))][0],waterInt[i+(randF%(10*j))][1],waterInt[i+(randF%(10*j))][2]);
         showAll();
-        vTaskDelay(25);
+        delay(25);
       }
     }
 
@@ -111,8 +116,13 @@ void Lamp::randomLights(){ // Tilfældige lys blinker hurtigt
 
   }
 
-showAll();
-vTaskDelay(80);
+strip_a.show();
+strip_b.show();
+strip_c.show();
+strip_d.show();
+strip_e.show();
+strip_f.show();
+delay(80);
 }
 
 void Lamp::setRow(int r, int g, int b, int strip) { //tænder for en række med en rgb farve
@@ -174,32 +184,32 @@ void Lamp::colorFlow() { //Går langsomt igennem all farver
   for (int i = 0; i < 256; i++) {
     squareFour(255,i,0,4);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 255; i >= 0; i--) {
     squareFour(i,255,0,4);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i < 256; i++) {
     squareFour(0,255,i,4);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 255; i >= 0; i--) {
     squareFour(0,i,255,4);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i < 256; i++) {
     squareFour(i,0,255,4);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 255; i >= 0; i--) {
     squareFour(255,0,i,4);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
 }
 
@@ -207,25 +217,25 @@ void Lamp::rainbowStrideColumn(){
   for(int i = 0; i < 20; i++){
     setColumn(9, 235, 5,(i%6));
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setColumn(235, 231, 5,(i+1)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setColumn(5, 235, 224,(i+2)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setColumn(5, 81, 245,(i+3)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setColumn(177, 5, 245,(i+4)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setColumn(245, 5, 17,(i+5)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setColumn(245, 93, 5,(i+6)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     
   }
   
@@ -241,25 +251,25 @@ void Lamp::rainbowStrideRow(){
   for(int i = 0; i < 20; i++){
     setRow(9, 235, 5,(i%6));
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setRow(235, 231, 5,(i+1)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setRow(5, 235, 224,(i+2)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setRow(5, 81, 245,(i+3)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setRow(177, 5, 245,(i+4)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setRow(245, 5, 17,(i+5)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     setRow(245, 93, 5,(i+6)%6);
     showAll();
-    vTaskDelay(10);
+    delay(10);
     
   }
   
@@ -286,7 +296,7 @@ void Lamp::swipeRightBlue() {
   for (int i = 0; i<6;i++){
     setColumn(0,0,s,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -310,7 +320,7 @@ void Lamp::swipeRightBlue() {
       setColumn(0,0,s+320,5);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 void Lamp::swipeLeftRed() {
@@ -318,7 +328,7 @@ void Lamp::swipeLeftRed() {
   for (int i = 6; i>=0;i--){
     setColumn(s,0,0,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -342,7 +352,7 @@ void Lamp::swipeLeftRed() {
       setColumn(s+320,0,0,0);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 void Lamp::swipeUpGreen() {
@@ -350,7 +360,7 @@ void Lamp::swipeUpGreen() {
   for (int i = 0; i<6;i++){
     setRow(0,s,0,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -374,7 +384,7 @@ void Lamp::swipeUpGreen() {
       setRow(0,s+320,0,5);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 void Lamp::swipeDownPurple() {
@@ -382,7 +392,7 @@ void Lamp::swipeDownPurple() {
   for (int i = 5; i>=0;i--){
     setRow(s,0,s,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -406,7 +416,7 @@ void Lamp::swipeDownPurple() {
       setRow(s+320,0,s+320,0);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 void Lamp::swipeRightCyan() {
@@ -414,7 +424,7 @@ void Lamp::swipeRightCyan() {
   for (int i = 0; i<6;i++){
     setColumn(0,s,s,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -438,7 +448,7 @@ void Lamp::swipeRightCyan() {
       setColumn(0,s+320,s+320,5);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 void Lamp::swipeLeftYellow() {
@@ -446,7 +456,7 @@ void Lamp::swipeLeftYellow() {
   for (int i = 6; i>=0;i--){
     setColumn(s,s,0,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -470,7 +480,7 @@ void Lamp::swipeLeftYellow() {
       setColumn(s+320,s+320,0,0);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 
@@ -479,7 +489,7 @@ void Lamp::swipeUpBlue() {
   for (int i = 0; i<6;i++){
     setRow(0,0,s,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -503,7 +513,7 @@ void Lamp::swipeUpBlue() {
       setRow(0,0,s+320,5);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 void Lamp::swipeDownRed() {
@@ -511,7 +521,7 @@ void Lamp::swipeDownRed() {
   for (int i = 5; i>=0;i--){
     setRow(s,0,0,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -535,7 +545,7 @@ void Lamp::swipeDownRed() {
       setRow(s+320,0,0,0);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 void Lamp::swipeRightGreen() {
@@ -543,7 +553,7 @@ void Lamp::swipeRightGreen() {
   for (int i = 0; i<6;i++){
     setColumn(0,s,0,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -567,7 +577,7 @@ void Lamp::swipeRightGreen() {
       setColumn(0,s+320,0,5);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 void Lamp::swipeLeftPurple() {
@@ -575,7 +585,7 @@ void Lamp::swipeLeftPurple() {
   for (int i = 6; i>=0;i--){
     setColumn(s,0,s,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -599,7 +609,7 @@ void Lamp::swipeLeftPurple() {
       setColumn(s+320,0,s+320,0);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 void Lamp::swipeUpCyan() {
@@ -607,7 +617,7 @@ void Lamp::swipeUpCyan() {
   for (int i = 0; i<6;i++){
     setRow(0,s,s,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -631,7 +641,7 @@ void Lamp::swipeUpCyan() {
       setRow(0,s+320,s+320,5);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
 }
 void Lamp::swipeDownYellow() {
@@ -639,7 +649,7 @@ void Lamp::swipeDownYellow() {
   for (int i = 5; i>=0;i--){
     setRow(s,s,0,i);
     showAll();
-    vTaskDelay(100);
+    delay(100);
   }
   for (int i = 0; i <575;i++) {
     s--;
@@ -663,71 +673,67 @@ void Lamp::swipeDownYellow() {
       setRow(s+320,s+320,0,0);
     }
     showAll();
-    vTaskDelay(2);
+    delay(2);
   }
-}
-
-void Lamp::clearAll() {
-  squareFour(0,0,0,4);
 }
 
 void Lamp::heart() {
   int pulse = 50;
-  strip_a.setPixelColor(2,r,g,b);
-  strip_a.setPixelColor(3,r,g,b);
-  strip_b.setPixelColor(1,r,g,b);
-  strip_b.setPixelColor(2,r,g,b);
-  strip_b.setPixelColor(3,r,g,b);
-  strip_b.setPixelColor(4,r,g,b);
-  setRow(r,g,b,2);
-  setRow(r,g,b,3);
-  setRow(r,g,b,4);
-  strip_f.setPixelColor(4,r,g,b);
-  strip_f.setPixelColor(1,r,g,b);
+  strip_a.setPixelColor(2,255,105,180);
+  strip_a.setPixelColor(3,255,105,180);
+  strip_b.setPixelColor(1,255,105,180);
+  strip_b.setPixelColor(2,255,105,180);
+  strip_b.setPixelColor(3,255,105,180);
+  strip_b.setPixelColor(4,255,105,180);
+  setRow(255,105,180,2);
+  setRow(255,105,180,3);
+  setRow(255,105,180,4);
+  strip_f.setPixelColor(4,255,105,180);
+  strip_f.setPixelColor(1,255,105,180);
   showAll();
-  vTaskDelay(2500);
+  delay(2500);
   squareFour(0,0,0,4);
-  strip_b.setPixelColor(2,r,g,b);
-  strip_b.setPixelColor(3,r,g,b);
-  strip_c.setPixelColor(1,r,g,b);
-  strip_c.setPixelColor(2,r,g,b);
-  strip_c.setPixelColor(3,r,g,b);
-  strip_c.setPixelColor(4,r,g,b);
-  setRow(r,g,b,3);
-  strip_e.setPixelColor(4,r,g,b);
-  strip_e.setPixelColor(3,r,g,b);
-  strip_e.setPixelColor(2,r,g,b);
-  strip_e.setPixelColor(1,r,g,b);
+  strip_b.setPixelColor(2,255,105,180);
+  strip_b.setPixelColor(3,255,105,180);
+  strip_c.setPixelColor(1,255,105,180);
+  strip_c.setPixelColor(2,255,105,180);
+  strip_c.setPixelColor(3,255,105,180);
+  strip_c.setPixelColor(4,255,105,180);
+  setRow(255,105,180,3);
+  strip_e.setPixelColor(4,255,105,180);
+  strip_e.setPixelColor(3,255,105,180);
+  strip_e.setPixelColor(2,255,105,180);
+  strip_e.setPixelColor(1,255,105,180);
   showAll();
-  vTaskDelay(pulse);
+  delay(pulse);
   strip_d.setPixelColor(0,0,0,0);
   strip_d.setPixelColor(5,0,0,0);
   strip_e.setPixelColor(1,0,0,0);
   strip_e.setPixelColor(4,0,0,0);
   showAll();
-  vTaskDelay(pulse);
+  delay(pulse);
   setRow(0,0,0,1);
   setRow(0,0,0,4);
   setColumn(0,0,0,1);
   setColumn(0,0,0,4);
   showAll();
-  vTaskDelay(600);
-  strip_b.setPixelColor(3,r,g,b);
-  strip_b.setPixelColor(2,r,g,b);
-  strip_c.setPixelColor(4,r,g,b);
-  strip_c.setPixelColor(1,r,g,b);
-  strip_d.setPixelColor(1,r,g,b);
-  strip_d.setPixelColor(4,r,g,b);
-  strip_e.setPixelColor(3,r,g,b);
-  strip_e.setPixelColor(2,r,g,b);
+  delay(600);
+  strip_b.setPixelColor(3,255,105,180);
+  strip_b.setPixelColor(2,255,105,180);
+  strip_c.setPixelColor(4,255,105,180);
+  strip_c.setPixelColor(1,255,105,180);
+  strip_d.setPixelColor(1,255,105,180);
+  strip_d.setPixelColor(4,255,105,180);
+  strip_e.setPixelColor(3,255,105,180);
+  strip_e.setPixelColor(2,255,105,180);
   showAll();
-  vTaskDelay(pulse);
-  strip_d.setPixelColor(0,r,g,b);
-  strip_d.setPixelColor(5,r,g,b);
-  strip_e.setPixelColor(1,r,g,b);
-  strip_e.setPixelColor(4,r,g,b);
+  delay(pulse);
+  strip_d.setPixelColor(0,255,105,180);
+  strip_d.setPixelColor(5,255,105,180);
+  strip_e.setPixelColor(1,255,105,180);
+  strip_e.setPixelColor(4,255,105,180);
   showAll();
-  vTaskDelay(pulse);
+  delay(pulse);
 
 }
 
@@ -742,42 +748,42 @@ void Lamp::tronRunner(){
       for(int i = 0; i < 6; i++){
         strip_a.setPixelColor(i,r,g,b);
         showAll();
-      vTaskDelay(100);
+      delay(100);
       }
     }
         if(j == 3){
       for(int i = 0; i < 6; i++){
         strip_b.setPixelColor(i,r,g,b);
         showAll();
-        vTaskDelay(100);
+        delay(100);
       }
     }
         if(j == 5){
       for(int i = 0; i < 6; i++){
         strip_c.setPixelColor(i,r,g,b);
         showAll();
-        vTaskDelay(100);
+        delay(100);
       }
     }
     if(j == 1){
       for(int i = 0; i < 6; i++){
         strip_d.setPixelColor(i,r,g,b);
         showAll();
-        vTaskDelay(100);
+        delay(100);
       }
     }
         if(j == 2){
       for(int i = 0; i < 6; i++){
         strip_e.setPixelColor(i,r,g,b);
         showAll();
-        vTaskDelay(100);
+        delay(100);
       }
     }
         if(j == 5){
       for(int i = 0; i < 6; i++){
         strip_f.setPixelColor(i,r,g,b);
         showAll();
-        vTaskDelay(100);
+        delay(100);
       }
     }
   }
@@ -813,19 +819,10 @@ void Lamp::individual(int r, int g, int b, int x, int y){
 
 }
 
-void Lamp::circleReal(){
-
-  circle(r,g,b,2,2);
-  circle(r,g,b,3,2);
-  circle(r,g,b,3,3);
-  circle(r,g,b,2,3);
-
-}
-
 void Lamp::circle(int r, int g, int b, int x, int y){
   individual(r,g,b,x,y);
   showAll();
-  vTaskDelay(150);
+  delay(150);
 
   squareFour(0,0,0,4);
   showAll();
@@ -850,7 +847,7 @@ void Lamp::circle(int r, int g, int b, int x, int y){
         individual(r,g,b,x-i,y+i);             
   }
     showAll();
-  vTaskDelay(150);
+  delay(150);
   squareFour(0,0,0,4);
   showAll();
 
@@ -871,7 +868,7 @@ void Lamp::circle(int r, int g, int b, int x, int y){
   individual(0,0,0,x-2,y+2);
 
   showAll();
-  vTaskDelay(150);
+  delay(150);
   squareFour(0,0,0,4);
   showAll();
 
@@ -885,7 +882,7 @@ void Lamp::circle(int r, int g, int b, int x, int y){
   individual(0,0,0,x-3,y+3);
 
   showAll();
-  vTaskDelay(150);
+  delay(150);
   squareFour(0,0,0,4);
   showAll();
 
