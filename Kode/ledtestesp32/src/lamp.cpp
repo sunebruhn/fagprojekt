@@ -303,7 +303,7 @@ void Lamp::swipeRightBlue() {
       setColumn(0,0,s+320,5);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 void Lamp::swipeLeftRed() {
@@ -335,7 +335,7 @@ void Lamp::swipeLeftRed() {
       setColumn(s+320,0,0,0);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 void Lamp::swipeUpGreen() {
@@ -367,7 +367,7 @@ void Lamp::swipeUpGreen() {
       setRow(0,s+320,0,5);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 void Lamp::swipeDownPurple() {
@@ -399,7 +399,7 @@ void Lamp::swipeDownPurple() {
       setRow(s+320,0,s+320,0);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 void Lamp::swipeRightCyan() {
@@ -431,7 +431,7 @@ void Lamp::swipeRightCyan() {
       setColumn(0,s+320,s+320,5);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 void Lamp::swipeLeftYellow() {
@@ -463,7 +463,7 @@ void Lamp::swipeLeftYellow() {
       setColumn(s+320,s+320,0,0);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 
@@ -496,7 +496,7 @@ void Lamp::swipeUpBlue() {
       setRow(0,0,s+320,5);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 void Lamp::swipeDownRed() {
@@ -528,7 +528,7 @@ void Lamp::swipeDownRed() {
       setRow(s+320,0,0,0);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 void Lamp::swipeRightGreen() {
@@ -560,7 +560,7 @@ void Lamp::swipeRightGreen() {
       setColumn(0,s+320,0,5);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 void Lamp::swipeLeftPurple() {
@@ -592,7 +592,7 @@ void Lamp::swipeLeftPurple() {
       setColumn(s+320,0,s+320,0);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 void Lamp::swipeUpCyan() {
@@ -624,13 +624,13 @@ void Lamp::swipeUpCyan() {
       setRow(0,s+320,s+320,5);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
 void Lamp::swipeDownYellow() {
   int s = 255;
   for (int i = 5; i>=0;i--){
-    setRow(0,s,s,i);
+    setRow(s,s,0,i);
     showAll();
     delay(100);
   }
@@ -656,6 +656,6 @@ void Lamp::swipeDownYellow() {
       setRow(s+320,s+320,0,0);
     }
     showAll();
-    delay(3);
+    delay(2);
   }
 }
