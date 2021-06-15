@@ -248,6 +248,96 @@ function LEDswitch(button)
   getState();
 }
 
+function LEDinit(button)
+{
+  var x = document.getElementById('LED_State').innerHTML;
+  console.log(x);
+  switch (x)  {
+    case "true":
+      document.getElementById(button).style.background = "LawnGreen";
+      document.getElementById(button).innerHTML = "On";
+      break;
+    case "false":
+      document.getElementById(button).style.background = "Red";
+      document.getElementById(button).innerHTML = "Off";
+      break;
+  }
+  switch(document.getElementById('mode').innerHTML) {
+    case "0":
+      document.getElementById(button1).style.background = "#F9F6EE";
+      document.getElementById(button2).style.background = "#F9F6EE";
+      document.getElementById(button3).style.background = "#F9F6EE";
+      document.getElementById(button4).style.background = "#F9F6EE";
+      document.getElementById(button5).style.background = "#F9F6EE";
+      document.getElementById(button6).style.background = "#F9F6EE";
+      document.getElementById(button7).style.background = "#F9F6EE";
+      break;
+    case "1":
+      document.getElementById(button1).style.background = "LawnGreen";
+      document.getElementById(button2).style.background = "#F9F6EE";
+      document.getElementById(button3).style.background = "#F9F6EE";
+      document.getElementById(button4).style.background = "#F9F6EE";
+      document.getElementById(button5).style.background = "#F9F6EE";
+      document.getElementById(button6).style.background = "#F9F6EE";
+      document.getElementById(button7).style.background = "#F9F6EE";
+      break;
+    case "2":
+      document.getElementById(button1).style.background = "#F9F6EE";
+      document.getElementById(button2).style.background = "LawnGreen";
+      document.getElementById(button3).style.background = "#F9F6EE";
+      document.getElementById(button4).style.background = "#F9F6EE";
+      document.getElementById(button5).style.background = "#F9F6EE";
+      document.getElementById(button6).style.background = "#F9F6EE";
+      document.getElementById(button7).style.background = "#F9F6EE";
+      break;
+    case "3":
+      document.getElementById(button1).style.background = "#F9F6EE";
+      document.getElementById(button2).style.background = "#F9F6EE";
+      document.getElementById(button3).style.background = "LawnGreen";
+      document.getElementById(button4).style.background = "#F9F6EE";
+      document.getElementById(button5).style.background = "#F9F6EE";
+      document.getElementById(button6).style.background = "#F9F6EE";
+      document.getElementById(button7).style.background = "#F9F6EE";
+      break;
+    case "4":
+      document.getElementById(button1).style.background = "#F9F6EE";
+      document.getElementById(button2).style.background = "#F9F6EE";
+      document.getElementById(button3).style.background = "#F9F6EE";
+      document.getElementById(button4).style.background = "LawnGreen";
+      document.getElementById(button5).style.background = "#F9F6EE";
+      document.getElementById(button6).style.background = "#F9F6EE";
+      document.getElementById(button7).style.background = "#F9F6EE";
+      break;
+    case "5":
+      document.getElementById(button1).style.background = "#F9F6EE";
+      document.getElementById(button2).style.background = "#F9F6EE";
+      document.getElementById(button3).style.background = "#F9F6EE";
+      document.getElementById(button4).style.background = "#F9F6EE";
+      document.getElementById(button5).style.background = "LawnGreen";
+      document.getElementById(button6).style.background = "#F9F6EE";
+      document.getElementById(button7).style.background = "#F9F6EE";
+      break;
+    case "6":
+      document.getElementById(button1).style.background = "#F9F6EE";
+      document.getElementById(button2).style.background = "#F9F6EE";
+      document.getElementById(button3).style.background = "#F9F6EE";
+      document.getElementById(button4).style.background = "#F9F6EE";
+      document.getElementById(button5).style.background = "#F9F6EE";
+      document.getElementById(button6).style.background = "LawnGreen";
+      document.getElementById(button7).style.background = "#F9F6EE";
+      break;
+    case "7":
+      document.getElementById(button1).style.background = "#F9F6EE";
+      document.getElementById(button2).style.background = "#F9F6EE";
+      document.getElementById(button3).style.background = "#F9F6EE";
+      document.getElementById(button4).style.background = "#F9F6EE";
+      document.getElementById(button5).style.background = "#F9F6EE";
+      document.getElementById(button6).style.background = "#F9F6EE";
+      document.getElementById(button7).style.background = "LawnGreen";
+      break;
+  }
+}
+
 function MODEswitch(button)
 {
   var x = document.getElementById('LED_State').innerHTML;
