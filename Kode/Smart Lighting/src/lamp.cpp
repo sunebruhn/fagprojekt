@@ -4,7 +4,7 @@ bool Lamp::state = 0;
 int32_t Lamp::r = 64;
 int32_t Lamp::g = 64;
 int32_t Lamp::b = 64;
-enum lampMode Lamp::mode = OFF;
+enum lampMode Lamp::mode = UNIFORM;
 //bool Lamp::isSet = 0;
 
 void Lamp::task(){
@@ -30,11 +30,6 @@ void Lamp::update()
 
   switch (mode) // do according to mode
   {
-  case OFF:
-    {
-      return;
-    }
-    break;
   case UNIFORM:
     {
       uniform();

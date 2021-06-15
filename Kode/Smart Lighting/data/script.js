@@ -1,7 +1,6 @@
 var ws = new WebSocket("ws://192.168.43.25/test");
 
-var LEDSTATE;
-
+/*
 function LEDswitch(button)  {
   var x = document.getElementById(button);
   var on = 1;
@@ -21,6 +20,7 @@ function LEDswitch(button)  {
   }
   getState();
 }
+*/
 
 function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -108,9 +108,31 @@ function getState() {
     if (this.readyState == 4 && this.status == 200) {
       const jsonresponse = JSON.parse(this.responseText);
       document.getElementById('LED_State').innerHTML = jsonresponse.state;
-      LEDSTATE = jsonresponse.state;
+
     }
   };
   xhttp.open("GET", "/getState", true);
   xhttp.send();
 }
+
+function LEDswitch(button)
+{
+  var x = document.getElementById('LED_State').innerHTML;
+  console.log(x);
+  switch (x)  {
+    case "true":
+      document.getElementById(button).style.background = "LawnGreen";
+      document.getElementById(button).innerHTML = "On";
+      ws.send(JSON.stringify({'id': 2, 'state': 0}));
+      console.log("is true");
+      break;
+    case "false":
+      document.getElementById(button).style.background = "Red";
+      document.getElementById(button).innerHTML = "Off";
+      ws.send(JSON.stringify({'id': 2, 'state': 1}));
+      console.log("is false");
+      break;
+  }
+  getState();
+}
+

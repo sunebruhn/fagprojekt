@@ -7,7 +7,7 @@
 #define NUMPIXELS  6
 #define BRIGNTNESS 255
 
-enum lampMode{OFF, UNIFORM, SWIPE};
+enum lampMode{UNIFORM, SWIPE};
 
 class Lamp
 {
