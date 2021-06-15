@@ -96,12 +96,20 @@ void handleData(char* data, size_t len){
       tmpLamp.r = doc["r"];
       tmpLamp.g = doc["g"];
       tmpLamp.b = doc["b"];
-      tmpLamp.mode = lampMode::UNIFORM;
+      //tmpLamp.mode = lampMode::UNIFORM;
       //tmpLamp.isSet = 0;
       Serial.print("the test ");
       Serial.print(tmpLamp.r);
       Serial.print(tmpLamp.g);
       Serial.println(tmpLamp.b);
+    }
+    break;
+  case SET_TO_UNIFORM:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::UNIFORM;
+      //tmpLamp.isSet = 0;
+      Serial.println("uniform mode");
     }
     break;
   case SET_TO_SWIPE:

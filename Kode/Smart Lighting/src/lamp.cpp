@@ -20,6 +20,7 @@ void Lamp::startTask(TaskHandle_t taskHandle){
     xTaskCreate(this->startTaskImpl, "Task", 2048, this, 5, &taskHandle);
 }
 
+// the state machine
 void Lamp::update()
 {
   if(!state) // turn off all when state is 0 and start loop over
@@ -450,8 +451,8 @@ void Lamp::swipeRightBlue() {
   int s = 255;
   for (int i = 0; i<6;i++){
     setColumn(0,0,s,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -478,8 +479,8 @@ showAll();
     if (i > 320) {
       setColumn(0,0,s+320,5);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -490,8 +491,8 @@ void Lamp::swipeLeftRed() {
   int s = 255;
   for (int i = 6; i>=0;i--){
     setColumn(s,0,0,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -518,8 +519,8 @@ showAll();
     if (i > 320) {
       setColumn(s+320,0,0,0);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -530,8 +531,8 @@ void Lamp::swipeUpGreen() {
   int s = 255;
   for (int i = 0; i<6;i++){
     setRow(0,s,0,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -558,8 +559,8 @@ showAll();
     if (i > 320) {
       setRow(0,s+320,0,5);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -570,8 +571,8 @@ void Lamp::swipeDownPurple() {
   int s = 255;
   for (int i = 5; i>=0;i--){
     setRow(s,0,s,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -598,8 +599,8 @@ showAll();
     if (i > 320) {
       setRow(s+320,0,s+320,0);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -610,8 +611,8 @@ void Lamp::swipeRightCyan() {
   int s = 255;
   for (int i = 0; i<6;i++){
     setColumn(0,s,s,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -638,8 +639,8 @@ showAll();
     if (i > 320) {
       setColumn(0,s+320,s+320,5);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -650,8 +651,8 @@ void Lamp::swipeLeftYellow() {
   int s = 255;
   for (int i = 6; i>=0;i--){
     setColumn(s,s,0,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -678,8 +679,8 @@ showAll();
     if (i > 320) {
       setColumn(s+320,s+320,0,0);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -691,8 +692,8 @@ void Lamp::swipeUpBlue() {
   int s = 255;
   for (int i = 0; i<6;i++){
     setRow(0,0,s,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -719,8 +720,8 @@ showAll();
     if (i > 320) {
       setRow(0,0,s+320,5);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -731,8 +732,8 @@ void Lamp::swipeDownRed() {
   int s = 255;
   for (int i = 5; i>=0;i--){
     setRow(s,0,0,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -759,8 +760,8 @@ showAll();
     if (i > 320) {
       setRow(s+320,0,0,0);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -771,8 +772,8 @@ void Lamp::swipeRightGreen() {
   int s = 255;
   for (int i = 0; i<6;i++){
     setColumn(0,s,0,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -799,8 +800,8 @@ showAll();
     if (i > 320) {
       setColumn(0,s+320,0,5);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -811,8 +812,8 @@ void Lamp::swipeLeftPurple() {
   int s = 255;
   for (int i = 6; i>=0;i--){
     setColumn(s,0,s,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -839,8 +840,8 @@ showAll();
     if (i > 320) {
       setColumn(s+320,0,s+320,0);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -851,8 +852,8 @@ void Lamp::swipeUpCyan() {
   int s = 255;
   for (int i = 0; i<6;i++){
     setRow(0,s,s,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -879,8 +880,8 @@ showAll();
     if (i > 320) {
       setRow(0,s+320,s+320,5);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -891,8 +892,8 @@ void Lamp::swipeDownYellow() {
   int s = 255;
   for (int i = 5; i>=0;i--){
     setRow(s,s,0,i);
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
@@ -919,8 +920,8 @@ showAll();
     if (i > 320) {
       setRow(s+320,s+320,0,0);
     }
-    if(state == 0){
-clearAll();  
+    if(state == 0 || mode != SWIPE){
+//clearAll();  
 return;
 }
 showAll();
