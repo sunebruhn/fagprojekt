@@ -213,20 +213,33 @@ function preset7(button1, button2, button3, button4, button5, button6, button7) 
   getState();
 }
 
-function getState(button, button1, button2, button3, button4, button5, button6, button7) {
+function getInitState(button, button1, button2, button3, button4, button5, button6, button7) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       const jsonresponse = JSON.parse(this.responseText);
       document.getElementById('LED_State').innerHTML = jsonresponse.state;
       document.getElementById('mode').innerHTML = jsonresponse.mode;
-
+      LEDinit(button, button1, button2, button3, button4, button5, button6, button7);
     }
   };
   xhttp.open("GET", "/getState", true);
   xhttp.send();
-  LEDinit(button, button1, button2, button3, button4, button5, button6, button7);
 }
+
+function getState() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const jsonresponse = JSON.parse(this.responseText);
+      document.getElementById('LED_State').innerHTML = jsonresponse.state;
+      document.getElementById('mode').innerHTML = jsonresponse.mode;
+    }
+  };
+  xhttp.open("GET", "/getState", true);
+  xhttp.send();
+}
+
 
 function LEDswitch(button)
 {
@@ -263,6 +276,7 @@ function LEDinit(button, button1, button2, button3, button4, button5, button6, b
       document.getElementById(button).innerHTML = "Off";
       break;
   }
+  console.log(mode);
   switch(document.getElementById('mode').innerHTML) {
     case "0":
       document.getElementById(button1).style.background = "#F9F6EE";
