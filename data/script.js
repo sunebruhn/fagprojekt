@@ -25,3 +25,15 @@ function hexToRgb(hex) {
   var b = parseInt(result[3],16);
   ws.send(JSON.stringify({'id': 3, 'r': r, 'g' : g, 'b' : b}));
 }
+
+preset1(button1, button2, button3, button4, button5, button6, button7)  {
+  document.getElementById(button1).style.background = "LawnGreen";
+
+  document.getElementById(button2).style.background = "LawnGreen";
+  document.getElementById(button3).style.background = "LawnGreen";
+  document.getElementById(button4).style.background = "LawnGreen";
+  document.getElementById(button5).style.background = "LawnGreen";
+  document.getElementById(button6).style.background = "LawnGreen";
+  document.getElementById(button7).style.background = "LawnGreen";
+
+}
