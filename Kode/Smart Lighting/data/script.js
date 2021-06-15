@@ -248,7 +248,7 @@ function LEDswitch(button)
   getState();
 }
 
-function LEDinit(button)
+function LEDinit(button, button1, button2, button3, button4, button5, button6, button7)
 {
   var x = document.getElementById('LED_State').innerHTML;
   console.log(x);
