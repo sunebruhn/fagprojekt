@@ -9,6 +9,10 @@
 class Lamp
 {
     public:
+
+        static bool state;
+        static int32_t r, g, b;
+
         Adafruit_NeoPixel strip_a;
         Adafruit_NeoPixel strip_b;
         Adafruit_NeoPixel strip_c;
@@ -36,6 +40,8 @@ class Lamp
             strip_e.setBrightness(64);
             strip_f.setBrightness(64);
         }
+
+        // member functions
         void squareFour(int r, int g, int b, int corner);
         void runAround();
        // void water();
@@ -60,6 +66,11 @@ class Lamp
         void rainbowStrideColumn();
         void rainbowStrideRow();
         void heart();
-
+        void tronRunner();
+        void individual(int r, int g, int b, int x, int y);
+        void circle(int r, int g, int b, int x, int y);
+        void clearAll();
+        void circleReal();
 };
+
 #endif
