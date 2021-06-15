@@ -86,6 +86,7 @@ void handleData(char* data, size_t len){
     tmpLamp.state = doc["state"];
     Serial.print("the test ");
     Serial.println(tmpLamp.state);
+    //tmpLamp.isSet = 0;
   }  
     break;
   
@@ -96,16 +97,18 @@ void handleData(char* data, size_t len){
       tmpLamp.g = doc["g"];
       tmpLamp.b = doc["b"];
       tmpLamp.mode = lampMode::UNIFORM;
+      //tmpLamp.isSet = 0;
       Serial.print("the test ");
       Serial.print(tmpLamp.r);
       Serial.print(tmpLamp.g);
       Serial.println(tmpLamp.b);
     }
     break;
-  case SWIPE:
+  case SET_TO_SWIPE:
     {
       Lamp tmpLamp;
       tmpLamp.mode = lampMode::SWIPE;
+      //tmpLamp.isSet = 0;
       Serial.println("swipe mode");
     }
     break;
