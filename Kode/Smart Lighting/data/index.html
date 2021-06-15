@@ -18,7 +18,7 @@
 
       <!-- This is the introduction text below the title -->
       <div class="top">
-        <div id = "LED_state"> %information% </div>
+        <div> </div>
       </div>
 
       <!-- This is the meat of the website where all the controlpanels will be -->
@@ -67,13 +67,10 @@
 
 
     <script>
-
-    getState();
     var backRGB = document.getElementById("colorpicker").value;
     document.getElementById("colorpicker").onchange = function()  {
       backRGB = this.value;
       hexToRgb(backRGB);
-      getState();
     }
   </script>
 
