@@ -6,6 +6,7 @@ function LEDswitch(button)  {
   var x = document.getElementById(button);
   var on = 1;
   var off = 0;
+  getState();
   switch (LEDSTATE)  {
     case false:
       document.getElementById(button).style.background = "Red";
