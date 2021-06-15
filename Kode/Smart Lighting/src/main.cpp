@@ -70,6 +70,19 @@ void setup()
     request->send(SPIFFS, "/script.js");
   });
 
+  server.on("/getState", HTTP_GET, [](AsyncWebServerRequest *request) {
+    Serial.println("test");
+    AsyncResponseStream *response = request->beginResponseStream("application/json");
+    DynamicJsonDocument json(1024);
+    json["state"] = lamp.state;
+    json["r"] = lamp.r;
+    json["g"] = lamp.g;
+    json["b"] = lamp.b;
+    json["mode"] = lamp.mode;
+    serializeJson(json, *response);
+    request->send(response);
+  });
+
   server.begin();
   lamp.startTask(lampTaskHandle);
 

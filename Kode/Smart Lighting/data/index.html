@@ -18,7 +18,9 @@
 
       <!-- This is the introduction text below the title -->
       <div class="top">
-        <div> </div>
+        <div>
+        <span id = "LED_State">%test%</span>  
+        </div>
       </div>
 
       <!-- This is the meat of the website where all the controlpanels will be -->
@@ -72,6 +74,9 @@
       backRGB = this.value;
       hexToRgb(backRGB);
     }
+
+    getState();
+
   </script>
 
   </body>

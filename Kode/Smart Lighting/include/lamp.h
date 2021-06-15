@@ -5,6 +5,7 @@
 #include <FastLED.h>
 
 #define NUMPIXELS  6
+#define BRIGNTNESS 255
 
 enum lampMode{OFF, UNIFORM, SWIPE};
 
@@ -36,12 +37,12 @@ class Lamp
             strip_d.begin();
             strip_e.begin();
             strip_f.begin();
-            strip_a.setBrightness(64);
-            strip_b.setBrightness(64);
-            strip_c.setBrightness(64);
-            strip_d.setBrightness(64);
-            strip_e.setBrightness(64);
-            strip_f.setBrightness(64);
+            strip_a.setBrightness(BRIGNTNESS);
+            strip_b.setBrightness(BRIGNTNESS);
+            strip_c.setBrightness(BRIGNTNESS);
+            strip_d.setBrightness(BRIGNTNESS);
+            strip_e.setBrightness(BRIGNTNESS);
+            strip_f.setBrightness(BRIGNTNESS);
         }
         
         void task();
