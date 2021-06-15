@@ -9,11 +9,13 @@ function LEDswitch(button)  {
       x.innerHTML = "Off";
       document.getElementById(button).style.background = "Red";
       ws.send(JSON.stringify({'id': 2, 'state': 0}));
+      getState();
       break;
     case "Off":
       x.innerHTML = "On";
       document.getElementById(button).style.background = "LawnGreen";
       ws.send(JSON.stringify({'id': 2, 'state': 1}));;
+      getState();
       break;
   }
 }
@@ -96,4 +98,16 @@ function preset7(button1, button2, button3, button4, button5, button6, button7) 
   document.getElementById(button5).style.background = "#F9F6EE";
   document.getElementById(button6).style.background = "#F9F6EE";
   ws.send(JSON.stringify({'id': 10}));
+}
+
+function getState() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      JSONVar jsonresponse = JSon.parse(this.responseText);
+      document.getElementById("LED_state").innerHTML = jsonresponse.state;
+    }
+  };
+  xhttp.open("GET", "/getState", true);
+  xhttp.send();0
 }

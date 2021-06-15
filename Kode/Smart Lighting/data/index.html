@@ -18,13 +18,13 @@
 
       <!-- This is the introduction text below the title -->
       <div class="top">
-        <div> </div>
+        <div id = "LED_state"> %information% </div>
       </div>
 
       <!-- This is the meat of the website where all the controlpanels will be -->
       <div class="middletop">
         <div id = "LEDState"> Power button </div>
-        <button id="buttonLED" class="button button1" onclick="LEDswitch('buttonLED')" style = "box-shadow: 0 6px #999;">On</button>
+          <button id="buttonLED" class="button button1" onclick="LEDswitch('buttonLED')" style = "box-shadow: 0 6px #999;">On</button>
       </div>
 
       <div class="middlebottom">
@@ -67,10 +67,13 @@
 
 
     <script>
+
+    getState();
     var backRGB = document.getElementById("colorpicker").value;
     document.getElementById("colorpicker").onchange = function()  {
       backRGB = this.value;
       hexToRgb(backRGB);
+      getState();
     }
   </script>
 
