@@ -16,7 +16,7 @@ function LEDswitch(button)  {
       ws.send(JSON.stringify({'id': 2, 'state': 1}));;
       break;
   }
-  getstate();
+  getState();
 }
 
 function hexToRgb(hex) {
