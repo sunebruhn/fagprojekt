@@ -4,7 +4,7 @@ function LEDswitch(button)  {
   var x = document.getElementById(button);
   var on = 1;
   var off = 0;
-  getState();
+  getState(button);
   switch (x.innerHTML)  {
     case "On":
       x.innerHTML = "Off";
@@ -99,14 +99,12 @@ function preset7(button1, button2, button3, button4, button5, button6, button7) 
   ws.send(JSON.stringify({'id': 10}));
 }
 
-function getState() {
+function getState(button) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
       const jsonresponse = JSON.parse(this.responseText);
-      console.log(jsonresponse.state);
-      document.getElementById("LED_State").innerHTML = jsonresponse.state;
+      document.getElementById(button).innerHTML = jsonresponse.state;
     }
   };
   xhttp.open("GET", "/getState", true);
