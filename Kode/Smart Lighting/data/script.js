@@ -213,7 +213,7 @@ function preset7(button1, button2, button3, button4, button5, button6, button7) 
   getState();
 }
 
-function getState() {
+function getState(button, button1, button2, button3, button4, button5, button6, button7) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -225,6 +225,7 @@ function getState() {
   };
   xhttp.open("GET", "/getState", true);
   xhttp.send();
+  LEDinit(button, button1, button2, button3, button4, button5, button6, button7);
 }
 
 function LEDswitch(button)
