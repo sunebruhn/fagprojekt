@@ -268,12 +268,12 @@ function LEDinit(button, button1, button2, button3, button4, button5, button6, b
   console.log(x);
   switch (x)  {
     case "true":
-      document.getElementById(button).style.background = "LawnGreen";
-      document.getElementById(button).innerHTML = "On";
+      document.getElementById('buttonLED').style.background = "LawnGreen";
+      document.getElementById('buttonLED').innerHTML = "On";
       break;
     case "false":
-      document.getElementById(button).style.background = "Red";
-      document.getElementById(button).innerHTML = "Off";
+      document.getElementById('buttonLED').style.background = "Red";
+      document.getElementById('buttonLED').innerHTML = "Off";
       break;
   }
   console.log(mode);
