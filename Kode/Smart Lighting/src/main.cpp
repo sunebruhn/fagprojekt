@@ -10,6 +10,7 @@
 #include "wifiprotocols.h"
 #include "webprotocols.h"
 #include "lamp.h"
+#include "alarm.h"
 
 /* Definitions and globals
 { */
@@ -18,7 +19,9 @@
 
   // Create AsyncWebServer object on port 80
   AsyncWebServer server(80);
-  AsyncWebSocket ws("/test"); /*
+  AsyncWebSocket ws("/test"); 
+  
+  Alarm myAlarm;  /*
 } */
 void setup()
 {
@@ -33,6 +36,9 @@ void setup()
 
   //  connect to WiFi
   autoConnect();
+
+  // get time
+  myAlarm.startTask(NULL);
   
   //  Web server protocols
 
