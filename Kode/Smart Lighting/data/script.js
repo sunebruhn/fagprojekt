@@ -57,66 +57,160 @@ function preset1(button1, button2, button3, button4, button5, button6, button7) 
   getState();
 }
 
-
 function preset2(button1, button2, button3, button4, button5, button6, button7)  {
-  document.getElementById(button2).style.background = "LawnGreen";
-  document.getElementById(button1).style.background = "#F9F6EE";
-  document.getElementById(button3).style.background = "#F9F6EE";
-  document.getElementById(button4).style.background = "#F9F6EE";
-  document.getElementById(button5).style.background = "#F9F6EE";
-  document.getElementById(button6).style.background = "#F9F6EE";
-  document.getElementById(button7).style.background = "#F9F6EE";
-  ws.send(JSON.stringify({'id': 5}));
+  switch(document.getElementById('mode').innerHTML) {
+  case "2":
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 4}));
+    break;
+  default:
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "LawnGreen";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 6}));
+    break;
+  }
+  getState();
 }
+
 function preset3(button1, button2, button3, button4, button5, button6, button7)  {
-  document.getElementById(button3).style.background = "LawnGreen";
-  document.getElementById(button1).style.background = "#F9F6EE";
-  document.getElementById(button2).style.background = "#F9F6EE";
-  document.getElementById(button4).style.background = "#F9F6EE";
-  document.getElementById(button5).style.background = "#F9F6EE";
-  document.getElementById(button6).style.background = "#F9F6EE";
-  document.getElementById(button7).style.background = "#F9F6EE";
-  ws.send(JSON.stringify({'id': 6}));
+  switch(document.getElementById('mode').innerHTML) {
+  case "3":
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 4}));
+    break;
+  default:
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "LawnGreen";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 7}));
+    break;
+  }
+  getState();
 }
+
 function preset4(button1, button2, button3, button4, button5, button6, button7)  {
-  document.getElementById(button4).style.background = "LawnGreen";
-  document.getElementById(button1).style.background = "#F9F6EE";
-  document.getElementById(button2).style.background = "#F9F6EE";
-  document.getElementById(button3).style.background = "#F9F6EE";
-  document.getElementById(button5).style.background = "#F9F6EE";
-  document.getElementById(button6).style.background = "#F9F6EE";
-  document.getElementById(button7).style.background = "#F9F6EE";
-  ws.send(JSON.stringify({'id': 7}));
+  switch(document.getElementById('mode').innerHTML) {
+  case "4":
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 4}));
+    break;
+  default:
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "LawnGreen";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 8}));
+    break;
+  }
+  getState();
 }
+
 function preset5(button1, button2, button3, button4, button5, button6, button7)  {
-  document.getElementById(button5).style.background = "LawnGreen";
-  document.getElementById(button1).style.background = "#F9F6EE";
-  document.getElementById(button2).style.background = "#F9F6EE";
-  document.getElementById(button3).style.background = "#F9F6EE";
-  document.getElementById(button4).style.background = "#F9F6EE";
-  document.getElementById(button6).style.background = "#F9F6EE";
-  document.getElementById(button7).style.background = "#F9F6EE";
-  ws.send(JSON.stringify({'id': 8}));
+  switch(document.getElementById('mode').innerHTML) {
+  case "5":
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 4}));
+    break;
+  default:
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "LawnGreen";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 9}));
+    break;
+  }
+  getState();
 }
+
 function preset6(button1, button2, button3, button4, button5, button6, button7)  {
-  document.getElementById(button6).style.background = "LawnGreen";
-  document.getElementById(button1).style.background = "#F9F6EE";
-  document.getElementById(button2).style.background = "#F9F6EE";
-  document.getElementById(button3).style.background = "#F9F6EE";
-  document.getElementById(button4).style.background = "#F9F6EE";
-  document.getElementById(button5).style.background = "#F9F6EE";
-  document.getElementById(button7).style.background = "#F9F6EE";
-  ws.send(JSON.stringify({'id': 9}));
+  switch(document.getElementById('mode').innerHTML) {
+  case "6":
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 4}));
+    break;
+  default:
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "LawnGreen";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 10}));
+    break;
+  }
+  getState();
 }
+
 function preset7(button1, button2, button3, button4, button5, button6, button7)  {
-  document.getElementById(button7).style.background = "LawnGreen";
-  document.getElementById(button1).style.background = "#F9F6EE";
-  document.getElementById(button2).style.background = "#F9F6EE";
-  document.getElementById(button3).style.background = "#F9F6EE";
-  document.getElementById(button4).style.background = "#F9F6EE";
-  document.getElementById(button5).style.background = "#F9F6EE";
-  document.getElementById(button6).style.background = "#F9F6EE";
-  ws.send(JSON.stringify({'id': 10}));
+  switch(document.getElementById('mode').innerHTML) {
+  case "7":
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 4}));
+    break;
+  default:
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "LawnGreen";
+    ws.send(JSON.stringify({'id': 11}));
+    break;
+  }
+  getState();
 }
 
 function getState() {
