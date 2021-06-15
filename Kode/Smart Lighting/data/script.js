@@ -35,6 +35,7 @@ function preset1(button1, button2, button3, button4, button5, button6, button7) 
   document.getElementById(button5).style.background = "#F9F6EE";
   document.getElementById(button6).style.background = "#F9F6EE";
   document.getElementById(button7).style.background = "#F9F6EE";
+  ws.send(JSON.stringify({'id': 4}));
 }
 function preset2(button1, button2, button3, button4, button5, button6, button7)  {
   document.getElementById(button2).style.background = "LawnGreen";
@@ -44,6 +45,7 @@ function preset2(button1, button2, button3, button4, button5, button6, button7) 
   document.getElementById(button5).style.background = "#F9F6EE";
   document.getElementById(button6).style.background = "#F9F6EE";
   document.getElementById(button7).style.background = "#F9F6EE";
+  ws.send(JSON.stringify({'id': 5}));
 }
 function preset3(button1, button2, button3, button4, button5, button6, button7)  {
   document.getElementById(button3).style.background = "LawnGreen";
@@ -53,6 +55,7 @@ function preset3(button1, button2, button3, button4, button5, button6, button7) 
   document.getElementById(button5).style.background = "#F9F6EE";
   document.getElementById(button6).style.background = "#F9F6EE";
   document.getElementById(button7).style.background = "#F9F6EE";
+  ws.send(JSON.stringify({'id': 6}));
 }
 function preset4(button1, button2, button3, button4, button5, button6, button7)  {
   document.getElementById(button4).style.background = "LawnGreen";
@@ -62,6 +65,7 @@ function preset4(button1, button2, button3, button4, button5, button6, button7) 
   document.getElementById(button5).style.background = "#F9F6EE";
   document.getElementById(button6).style.background = "#F9F6EE";
   document.getElementById(button7).style.background = "#F9F6EE";
+  ws.send(JSON.stringify({'id': 7}));
 }
 function preset5(button1, button2, button3, button4, button5, button6, button7)  {
   document.getElementById(button5).style.background = "LawnGreen";
@@ -71,6 +75,7 @@ function preset5(button1, button2, button3, button4, button5, button6, button7) 
   document.getElementById(button4).style.background = "#F9F6EE";
   document.getElementById(button6).style.background = "#F9F6EE";
   document.getElementById(button7).style.background = "#F9F6EE";
+  ws.send(JSON.stringify({'id': 8}));
 }
 function preset6(button1, button2, button3, button4, button5, button6, button7)  {
   document.getElementById(button6).style.background = "LawnGreen";
@@ -80,6 +85,7 @@ function preset6(button1, button2, button3, button4, button5, button6, button7) 
   document.getElementById(button4).style.background = "#F9F6EE";
   document.getElementById(button5).style.background = "#F9F6EE";
   document.getElementById(button7).style.background = "#F9F6EE";
+  ws.send(JSON.stringify({'id': 9}));
 }
 function preset7(button1, button2, button3, button4, button5, button6, button7)  {
   document.getElementById(button7).style.background = "LawnGreen";
@@ -89,4 +95,5 @@ function preset7(button1, button2, button3, button4, button5, button6, button7) 
   document.getElementById(button4).style.background = "#F9F6EE";
   document.getElementById(button5).style.background = "#F9F6EE";
   document.getElementById(button6).style.background = "#F9F6EE";
+  ws.send(JSON.stringify({'id': 10}));
 }
