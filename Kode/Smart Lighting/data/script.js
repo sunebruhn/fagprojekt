@@ -10,10 +10,12 @@ function LEDswitch(button)  {
   switch (LEDSTATE)  {
     case false:
       document.getElementById(button).style.background = "Red";
+      document.getElementById(button).innerHTML = "Off";
       ws.send(JSON.stringify({'id': 2, 'state': 0}));
       break;
     case true:
       document.getElementById(button).style.background = "LawnGreen";
+      document.getElementById(button).innerHTML = "On";
       ws.send(JSON.stringify({'id': 2, 'state': 1}));;
       break;
   }
