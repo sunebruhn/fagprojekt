@@ -32,15 +32,32 @@ function hexToRgb(hex) {
 
 
 function preset1(button1, button2, button3, button4, button5, button6, button7)  {
-  document.getElementById(button1).style.background = "LawnGreen";
-  document.getElementById(button2).style.background = "#F9F6EE";
-  document.getElementById(button3).style.background = "#F9F6EE";
-  document.getElementById(button4).style.background = "#F9F6EE";
-  document.getElementById(button5).style.background = "#F9F6EE";
-  document.getElementById(button6).style.background = "#F9F6EE";
-  document.getElementById(button7).style.background = "#F9F6EE";
-  ws.send(JSON.stringify({'id': 4}));
+  switch(document.getElementById('mode').innerHTML) {
+  case "1":
+    document.getElementById(button1).style.background = "#F9F6EE";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 4}));
+    break;
+  default:
+    document.getElementById(button1).style.background = "LawnGreen";
+    document.getElementById(button2).style.background = "#F9F6EE";
+    document.getElementById(button3).style.background = "#F9F6EE";
+    document.getElementById(button4).style.background = "#F9F6EE";
+    document.getElementById(button5).style.background = "#F9F6EE";
+    document.getElementById(button6).style.background = "#F9F6EE";
+    document.getElementById(button7).style.background = "#F9F6EE";
+    ws.send(JSON.stringify({'id': 5}));
+    break;
+  }
+  getState();
 }
+
+
 function preset2(button1, button2, button3, button4, button5, button6, button7)  {
   document.getElementById(button2).style.background = "LawnGreen";
   document.getElementById(button1).style.background = "#F9F6EE";
@@ -108,6 +125,7 @@ function getState() {
     if (this.readyState == 4 && this.status == 200) {
       const jsonresponse = JSON.parse(this.responseText);
       document.getElementById('LED_State').innerHTML = jsonresponse.state;
+      document.getElementById('mode').innerHTML = jsonresponse.mode;
 
     }
   };
@@ -136,3 +154,23 @@ function LEDswitch(button)
   getState();
 }
 
+function MODEswitch(button)
+{
+  var x = document.getElementById('LED_State').innerHTML;
+  console.log(x);
+  switch (x)  {
+    case "true":
+      document.getElementById(button).style.background = "LawnGreen";
+      document.getElementById(button).innerHTML = "On";
+      ws.send(JSON.stringify({'id': 2, 'state': 0}));
+      console.log("is true");
+      break;
+    case "false":
+      document.getElementById(button).style.background = "Red";
+      document.getElementById(button).innerHTML = "Off";
+      ws.send(JSON.stringify({'id': 2, 'state': 1}));
+      console.log("is false");
+      break;
+  }
+  getState();
+}
