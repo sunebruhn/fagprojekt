@@ -71,6 +71,7 @@ class Lamp
         void circle(int r, int g, int b, int x, int y);
         void clearAll();
         void circleReal();
+        void uniform();
 };
 
 #endif

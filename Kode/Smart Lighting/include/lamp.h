@@ -15,8 +15,6 @@ class Lamp
         static bool state;
         static int32_t r, g, b;
         static enum lampMode mode;
-        static bool isSet;
-        TaskHandle_t taskHandle;
 
         Adafruit_NeoPixel strip_a;
         Adafruit_NeoPixel strip_b;
@@ -45,6 +43,13 @@ class Lamp
             strip_e.setBrightness(64);
             strip_f.setBrightness(64);
         }
+        
+        void task();
+        static void startTaskImpl(void*);
+        void startTask(TaskHandle_t taskHandle);
+        
+
+        void update();
 
         // member functions
         void squareFour(int r, int g, int b, int corner);
@@ -74,6 +79,9 @@ class Lamp
         void tronRunner();
         void individual(int r, int g, int b, int x, int y);
         void circle(int r, int g, int b, int x, int y);
+        void uniform();
+        void clearAll();
+        void circleReal();
 };
 
 #endif
