@@ -16,6 +16,11 @@
         <div> ledia </div>
       </div>
 
+      <div class="top">
+        <div id = "LED_State"></div>
+        <div id = "mode"></div>
+      </div>
+
       <!-- This is the meat of the website where all the controlpanels will be -->
       <div class="middletop">
         <div id = "LEDState"> Power button </div>
@@ -93,7 +98,7 @@
       OFFmin = parseInt(OFFarr[1]);
       console.log(OFFhour);
       console.log(OFFmin);
-      ws.send(JSON.stringify({'id': 13, 'hour': OFFhour, 'min' : OFFmin}));
+      ws.send(JSON.stringify({'id': 13, 'hour': OFFhour, 'min' : OFF min}));
     }
 
 
