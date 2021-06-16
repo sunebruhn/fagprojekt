@@ -24,7 +24,8 @@
 
       <div class="middlemid">
         <label for="appt"> Set an alarm to turn on or off the LED</label>
-        <input type="time" id ="alarm">
+        <small>Turn on:</small><input type="time" id ="ONalarm"> <br>
+        <small>Turn off:</small><input type="time" id ="OFFalarm">
       </div>
 
       <div class="middlebottom">
@@ -73,15 +74,26 @@
       hexToRgb(backRGB);
     }
 
-    var time = document.getElementById('alarm').value;
-    document.getElementById('alarm').onchange = function()  {
-      strTime = this.value
-      arr = strTime.split(':');
-      hour = parseInt(arr[0]);
-      min = parseInt(arr[1]);
-      console.log(hour);
-      console.log(min);
-      ws.send(JSON.stringify({'id': 12, 'hour': hour, 'min' : min}));
+    var ONtime = document.getElementById('ONalarm').value;
+    document.getElementById('ONalarm').onchange = function()  {
+      strOnTime = this.value;
+      ONarr = strOnTime.split(':');
+      ONhour = parseInt(ONarr[0]);
+      ONmin = parseInt(ONarr[1]);
+      console.log(ONhour);
+      console.log(ONmin);
+      ws.send(JSON.stringify({'id': 12, 'hour': ONhour, 'min' : ONmin}));
+    }
+
+    var OFFtime = document.getElementById('OFFalarm').value;
+    document.getElementById('OFFalarm').onchange = function() {
+      strOffTime = this.value;
+      OFFarr = strOffTime.split(':');
+      OFFhour = parseInt(OFFarr[0]);
+      OFFmin = parseInt(OFFarr[1]);
+      console.log(OFFhour);
+      console.log(OFFmin);
+      ws.send(JSON.stringify({'id': 13, 'hour': OFFhour, 'min' : OFFmin}));
     }
 
 
