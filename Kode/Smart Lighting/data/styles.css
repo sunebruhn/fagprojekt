@@ -35,11 +35,14 @@ body  {
 }
 
 /* Applies to the top, duh */
-.top  {
+.middlemid > label  {
   font-family: arial;
-  font-size: 24px;
-
-  margin: 35px;
+  display: block;
+  font-size: 40px;
+  margin: 100px;
+}
+input, label  {
+  margin: .2rem 0;
 }
 
 /* Applies to the different middle sections */
@@ -91,8 +94,6 @@ body  {
   background-color: #3e8e41;
   transform: translateY(4px);
 }
-
-
 
 .middlemid  {
   font-family: arial;

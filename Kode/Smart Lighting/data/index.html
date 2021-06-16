@@ -16,18 +16,15 @@
         <div> ledia </div>
       </div>
 
-      <!-- This is the introduction text below the title -->
-      <div class="top">
-        <div>
-        <span id = "LED_State">%test%</span>
-        <span id = "mode"> %mode test% </span>
-        </div>
-      </div>
-
       <!-- This is the meat of the website where all the controlpanels will be -->
       <div class="middletop">
         <div id = "LEDState"> Power button </div>
           <button id="buttonLED" class="button button1" onclick="LEDswitch('buttonLED')" style = "box-shadow: 0 6px #999;">On</button>
+      </div>
+
+      <div class="middlemid">
+        <label for="appt"> Set an alarm to turn on or off the LED</label>
+        <input type="time" id ="alarm">
       </div>
 
       <div class="middlebottom">
@@ -75,6 +72,18 @@
       backRGB = this.value;
       hexToRgb(backRGB);
     }
+
+    var time = document.getElementById('alarm').value;
+    document.getElementById('alarm').onchange = function()  {
+      strTime = this.value
+      arr = strTime.split(':');
+      hour = parseInt(arr[0]);
+      min = parseInt(arr[1]);
+      console.log(hour);
+      console.log(min);
+      ws.send(JSON.stringify({'id': 12, 'hour': hour, 'min' : min}));
+    }
+
 
     getInitState('buttonLED', 'button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7');
 
