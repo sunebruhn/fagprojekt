@@ -81,9 +81,11 @@ class Lamp
         void individual(int r, int g, int b, int x, int y);
         void circle(int r, int g, int b, int x, int y);
         void uniform();
+        void uniform(int _r, int _g,int _b);
         void clearAll();
         void circleReal();
         void rainBowStrideCombined();
+        void strobe(int bpm);
 };
 
 #endif
