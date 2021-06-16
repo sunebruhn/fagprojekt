@@ -120,6 +120,24 @@ void handleData(char* data, size_t len){
       Serial.println("swipe mode");
     }
     break;
+  case SET_ALARM_ON:
+    {
+      Alarm tmpAlarm;
+      tmpAlarm.turnOn.clk_hour = doc["hour"];
+      tmpAlarm.turnOn.clk_min = doc["min"];
+      Serial.println("set alarm on");
+      tmpAlarm.enable = 1;
+    }
+    break;
+  case SET_ALARM_OFF:
+    {
+      Alarm tmpAlarm;
+      tmpAlarm.turnOff.clk_hour = doc["hour"];
+      tmpAlarm.turnOff.clk_min = doc["min"];
+      tmpAlarm.enable = 1;
+      Serial.println("set alarm off");
+    }
+    break;
   default:
     break;
   }

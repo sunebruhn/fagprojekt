@@ -373,3 +373,8 @@ function MODEswitch(button)
   }
   getState();
 }
+
+setInterval(function() {
+  // Call a function repetatively with 2 Second interval
+  getInitState();
+}, 1000); //1000mSeconds update rate

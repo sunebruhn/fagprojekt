@@ -21,6 +21,7 @@
   AsyncWebServer server(80);
   AsyncWebSocket ws("/test"); 
   
+  // Create alarm object
   Alarm myAlarm;  /*
 } */
 void setup()

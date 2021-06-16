@@ -17,8 +17,8 @@
       </div>
 
       <div class="top">
-        <div id = "LED_State"></div>
-        <div id = "mode"></div>
+        <div id = "LED_State">%state%</div>
+        <div id = "mode">%mode%</div>
       </div>
 
       <!-- This is the meat of the website where all the controlpanels will be -->
@@ -98,7 +98,7 @@
       OFFmin = parseInt(OFFarr[1]);
       console.log(OFFhour);
       console.log(OFFmin);
-      ws.send(JSON.stringify({'id': 13, 'hour': OFFhour, 'min' : OFF min}));
+      ws.send(JSON.stringify({'id': 13, 'hour': OFFhour, 'min' : OFFmin}));
     }
 
 
