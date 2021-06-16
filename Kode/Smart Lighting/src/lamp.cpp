@@ -44,6 +44,42 @@ void Lamp::update()
       return;
     }
     break;
+  case COLORFLOW:
+    {
+      colorFlow();
+      return;
+    }
+    break;
+  case TRON:
+    {
+      tronRunner();
+      return;
+    }
+    break;
+    case HEART:
+    {
+      heart();
+      return;
+    }
+    break;
+  case RAINBOW:
+    {
+      rainBowStrideCombined();
+      return;
+    }
+    break;
+  case RANDOMLIGHTS:
+    {
+      randomLights();
+      return;
+    }
+    break;
+  case CIRCLE:
+    {
+      circleReal();
+      return;
+    }
+    break;
   /*case case:
     {
       do
@@ -1252,4 +1288,9 @@ showAll();
     strip_e.setPixelColor(i,r,g,b);
     strip_f.setPixelColor(i,r,g,b);
   }
+ }
+ void Lamp::rainBowStrideCombined(){
+   rainbowStrideRow();
+   rainbowStrideColumn();
+
  }

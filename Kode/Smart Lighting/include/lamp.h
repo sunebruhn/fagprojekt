@@ -7,7 +7,7 @@
 #define NUMPIXELS  6
 #define BRIGNTNESS 255
 
-enum lampMode{UNIFORM, SWIPE};
+enum lampMode{UNIFORM, SWIPE, COLORFLOW, TRON, HEART, RAINBOW, RANDOMLIGHTS, CIRCLE};
 
 class Lamp
 {
@@ -83,6 +83,7 @@ class Lamp
         void uniform();
         void clearAll();
         void circleReal();
+        void rainBowStrideCombined();
 };
 
 #endif

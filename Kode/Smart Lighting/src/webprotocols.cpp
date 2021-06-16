@@ -120,6 +120,54 @@ void handleData(char* data, size_t len){
       Serial.println("swipe mode");
     }
     break;
+  case SET_TO_COLORFLOW:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::COLORFLOW;
+      //tmpLamp.isSet = 0;
+      Serial.println("colorflow mode");
+    }
+    break;
+  case SET_TO_TRON:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::TRON;
+      //tmpLamp.isSet = 0;
+      Serial.println("tron mode");
+    }
+    break;
+  case SET_TO_HEART:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::HEART;
+      //tmpLamp.isSet = 0;
+      Serial.println("heart mode");
+    }
+    break;
+  case SET_TO_RAINBOW:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::RAINBOW;
+      //tmpLamp.isSet = 0;
+      Serial.println("rainbow mode");
+    }
+    break;
+  case SET_TO_RANDOMLIGHTS:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::RANDOMLIGHTS;
+      //tmpLamp.isSet = 0;
+      Serial.println("randomlights mode");
+    }
+    break;
+  case SET_TO_CIRCLE:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::CIRCLE;
+      //tmpLamp.isSet = 0;
+      Serial.println("circle mode");
+    }
+    break;
   case SET_ALARM_ON:
     {
       Alarm tmpAlarm;
