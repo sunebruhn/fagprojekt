@@ -1,4 +1,4 @@
-var ws = new WebSocket("ws://192.168.43.25/test");
+var ws = new WebSocket("ws://192.168.43.197/test");
 
 /*
 function LEDswitch(button)  {
