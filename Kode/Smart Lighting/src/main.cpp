@@ -9,21 +9,21 @@
 #include "wificonfig.h"
 #include "wifiprotocols.h"
 #include "webprotocols.h"
+#include "lamp.h"
+#include "alarm.h"
 
-//  Definitions and globals
+/* Definitions and globals
+{ */
+  Lamp lamp;
+  TaskHandle_t lampTaskHandle;
 
-// Create AsyncWebServer object on port 80
-AsyncWebServer server(80);
-AsyncWebSocket ws("/test");
-
-//   SSSSSS   EEEEEEEE  TTTTTTTT  UU    UU  PPPPPPP
-//  SS    SS  EE           TT     UU    UU  PP    PP
-//  SS        EE           TT     UU    UU  PP    PP
-//   SSSSS    EEEEEE       TT     UU    UU  PPPPPPP
-//        SS  EE           TT     UU    UU  PP
-//  SS    SS  EE           TT     UU    UU  PP
-//   SSSSSS   EEEEEEEE     TT      UUUUUU   PP
-
+  // Create AsyncWebServer object on port 80
+  AsyncWebServer server(80);
+  AsyncWebSocket ws("/test"); 
+  
+  // Create alarm object
+  Alarm myAlarm;  /*
+} */
 void setup()
 {
   Serial.begin(115200);
@@ -37,6 +37,9 @@ void setup()
 
   //  connect to WiFi
   autoConnect();
+
+  // get time
+  myAlarm.startTask(NULL);
   
   //  Web server protocols
 
@@ -52,13 +55,9 @@ void setup()
       0,                           // priority
       NULL);                       // handler
 
-  // Route for root / web page
+  // Send data to webpage
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-    /*if (ON_AP_FILTER(request))
-    {
-      request->send(SPIFFS, "/config_page.html");
-    }*/
     request->send(SPIFFS, "/index.html");
   });
 
@@ -78,15 +77,22 @@ void setup()
     request->send(SPIFFS, "/script.js");
   });
 
-  server.begin();
-}
+  server.on("/getState", HTTP_GET, [](AsyncWebServerRequest *request) {
+    Serial.println("test");
+    AsyncResponseStream *response = request->beginResponseStream("application/json");
+    DynamicJsonDocument json(1024);
+    json["state"] = lamp.state;
+    json["r"] = lamp.r;
+    json["g"] = lamp.g;
+    json["b"] = lamp.b;
+    json["mode"] = lamp.mode;
+    serializeJson(json, *response);
+    request->send(response);
+  });
 
-//  LL         OOOOOO    OOOOOO   PPPPPPP
-//  LL        OO    OO  OO    OO  PP    PP
-//  LL        OO    OO  OO    OO  PP    PP
-//  LL        OO    OO  OO    OO  PPPPPPP
-//  LL        OO    OO  OO    OO  PP
-//  LL        OO    OO  OO    OO  PP
-//  LLLLLLLL   OOOOOO    OOOOOO   PP
+  server.begin();
+  lamp.startTask(lampTaskHandle);
+
+}
 
 void loop() {}

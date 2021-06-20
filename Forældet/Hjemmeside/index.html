@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>LEDia</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type = "text/javascript" src="index.js"></script>
+  </head>
+
+
+  <body>
+
+    <div class="title">
+      <div> ledia </div>
+    </div>
+
+    <div class="flex-container">
+
+      <!-- This is the introduction text below the title -->
+      <div class="top">
+        <div> </div>
+      </div>
+
+      <!-- This is the meat of the website where all the controlpanels will be -->
+      <div class="middletop">
+        <div id = "LEDState"> Power button </div>
+        <button id="buttonLED" class="button button1" onclick="LEDswitch('buttonLED')">On</button>
+      </div>
+
+      <!--
+      <div class="middlemid">
+        <div> The strength of the LED is <span id="LEDvalue"></span>%</div>
+        <input type="range" min="1" max="100" value="50" class="slider" id="LEDstrength">
+      </div>
+      -->
+
+      <div class="middlebottom">
+        <div> Choose the color of the light </div>
+          <div>
+            <input type="color" id="colorpicker" value="#f6b73c">
+          </div>
+      </div>
+
+      <!-- This will be the place to honor the authors -->
+      <div class="bottom">
+        <div> Made by:<br> Emil K, Emil L, Sune og William </div>
+      </div>
+    </div>
+
+  <!-- The script below it to handle the changing slider value and send data upon change -->
+  <script>
+  <!-- The script below it to handle the changing slider value
+    var slider = document.getElementById('LEDstrength');
+    var output = document.getElementById('LEDvalue');
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+    slider.onchange = function()  {
+      console.log(this.value);
+    }
+    -->
+
+    <script>
+    var backRGB = document.getElementById("colorpicker").value;
+    document.getElementById("colorpicker").onchange = function()  {
+      backRGB = this.value;
+      console.log(backRGB);
+    }
+  </script>
+
+  </body>
+
+
+</html>

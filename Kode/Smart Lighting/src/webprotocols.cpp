@@ -80,7 +80,112 @@ void handleData(char* data, size_t len){
       NULL             // Task handle
       );
     break;
+  case ON_OFF_SWITCH:
+  {
+    Lamp tmpLamp;
+    tmpLamp.state = doc["state"];
+    Serial.print("the test ");
+    Serial.println(tmpLamp.state);
+    //tmpLamp.isSet = 0;
+  }  
+    break;
   
+  case SET_COLOUR:
+    {
+      Lamp tmpLamp;
+      tmpLamp.r = doc["r"];
+      tmpLamp.g = doc["g"];
+      tmpLamp.b = doc["b"];
+      //tmpLamp.mode = lampMode::UNIFORM;
+      //tmpLamp.isSet = 0;
+      Serial.print("the test ");
+      Serial.print(tmpLamp.r);
+      Serial.print(tmpLamp.g);
+      Serial.println(tmpLamp.b);
+    }
+    break;
+  case SET_TO_UNIFORM:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::UNIFORM;
+      //tmpLamp.isSet = 0;
+      Serial.println("uniform mode");
+    }
+    break;
+  case SET_TO_SWIPE:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::SWIPE;
+      //tmpLamp.isSet = 0;
+      Serial.println("swipe mode");
+    }
+    break;
+  case SET_TO_COLORFLOW:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::COLORFLOW;
+      //tmpLamp.isSet = 0;
+      Serial.println("colorflow mode");
+    }
+    break;
+  case SET_TO_TRON:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::TRON;
+      //tmpLamp.isSet = 0;
+      Serial.println("tron mode");
+    }
+    break;
+  case SET_TO_HEART:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::HEART;
+      //tmpLamp.isSet = 0;
+      Serial.println("heart mode");
+    }
+    break;
+  case SET_TO_RAINBOW:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::RAINBOW;
+      //tmpLamp.isSet = 0;
+      Serial.println("rainbow mode");
+    }
+    break;
+  case SET_TO_RANDOMLIGHTS:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::RANDOMLIGHTS;
+      //tmpLamp.isSet = 0;
+      Serial.println("randomlights mode");
+    }
+    break;
+  case SET_TO_CIRCLE:
+    {
+      Lamp tmpLamp;
+      tmpLamp.mode = lampMode::CIRCLE;
+      //tmpLamp.isSet = 0;
+      Serial.println("circle mode");
+    }
+    break;
+  case SET_ALARM_ON:
+    {
+      Alarm tmpAlarm;
+      tmpAlarm.turnOn.clk_hour = doc["hour"];
+      tmpAlarm.turnOn.clk_min = doc["min"];
+      Serial.println("set alarm on");
+      tmpAlarm.enable = 1;
+    }
+    break;
+  case SET_ALARM_OFF:
+    {
+      Alarm tmpAlarm;
+      tmpAlarm.turnOff.clk_hour = doc["hour"];
+      tmpAlarm.turnOff.clk_min = doc["min"];
+      tmpAlarm.enable = 1;
+      Serial.println("set alarm off");
+    }
+    break;
   default:
     break;
   }

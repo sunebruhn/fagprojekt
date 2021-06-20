@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="styles.css" media="screen"> 
-
-    <script src="script.js"></script>
+    <title>LEDia</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type = "text/javascript" src="script.js"></script>
   </head>
 
 
@@ -20,34 +16,96 @@
         <div> ledia </div>
       </div>
 
-      <!-- This is the introduction text below the title -->
       <div class="top">
-        <div> Welcome to LEDIA, your very own LED control center. Here you have the options to customize your LED, so that it is exactly how you want it. </div>
+        <div id = "LED_State">%state%</div>
+        <div id = "mode">%mode%</div>
       </div>
 
       <!-- This is the meat of the website where all the controlpanels will be -->
       <div class="middletop">
-        <div> Click to turn on the LED </div>
-        <button onclick="event.preventDefault(); buttonState();" class="button button1">hej</button>
+        <div id = "LEDState"> Power button </div>
+          <button id="buttonLED" class="button button1" onclick="LEDswitch('buttonLED')" style = "box-shadow: 0 6px #999;">On</button>
       </div>
 
       <div class="middlemid">
-        <div> det her er midten af midten </div>
+        <label for="appt"> Set an alarm to turn on or off the LED</label>
+        <small>Turn on:</small><input type="time" id ="ONalarm"> <br>
+        <small>Turn off:</small><input type="time" id ="OFFalarm">
       </div>
 
       <div class="middlebottom">
-        <div> det her er bunden af midten </div>
+        <div> Choose the color of the light </div>
+          <div>
+            <input type="color" id="colorpicker" value="#FF0000">
+          </div>
       </div>
-      <!-- /////////////////////////////////////////////////////////////////////// -->
+
+      <div class="middlebottom">
+        <div> Patterns </div>
+        <button id="button1" class="button buttonMatrix1" onclick="preset1('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px; box-shadow: 0 9px #999;"> Rainbow </button> <br>
+
+        <button id="button2" class="button buttonMatrix2" onclick="preset2('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px; box-shadow: 0 9px #999;"> Heartbeat </button> <br>
+
+        <button id="button3" class="button buttonMatrix3" onclick="preset3('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px; box-shadow: 0 9px #999;"> Waves </button> <br>
+
+        <button id="button4" class="button buttonMatrix4" onclick="preset4('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px; box-shadow: 0 9px #999;"> name </button> <br>
+
+        <button id="button5" class="button buttonMatrix5" onclick="preset5('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px; box-shadow: 0 9px #999;"> name </button> <br>
+
+        <button id="button6" class="button buttonMatrix6" onclick="preset6('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px; box-shadow: 0 9px #999;"> name </button> <br>
+
+        <button id="button7" class="button buttonMatrix7" onclick="preset7('button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7')" style ="border: 1px outset black;
+        background-color: #F9F6EE; width: 200px; border-radius: 30px; box-shadow: 0 9px #999;"> name </button> <br>
+
+      </div>
 
       <!-- This will be the place to honor the authors -->
       <div class="bottom">
-        <div> det her er bunden </div>
+        <div> Made by:<br> Emil K, Emil L, Sune og William </div>
       </div>
     </div>
 
 
+    <script>
+    var backRGB = document.getElementById("colorpicker").value;
+    document.getElementById("colorpicker").onchange = function()  {
+      backRGB = this.value;
+      hexToRgb(backRGB);
+    }
 
+    var ONtime = document.getElementById('ONalarm').value;
+    document.getElementById('ONalarm').onchange = function()  {
+      strOnTime = this.value;
+      ONarr = strOnTime.split(':');
+      ONhour = parseInt(ONarr[0]);
+      ONmin = parseInt(ONarr[1]);
+      console.log(ONhour);
+      console.log(ONmin);
+      ws.send(JSON.stringify({'id': 12, 'hour': ONhour, 'min' : ONmin}));
+    }
+
+    var OFFtime = document.getElementById('OFFalarm').value;
+    document.getElementById('OFFalarm').onchange = function() {
+      strOffTime = this.value;
+      OFFarr = strOffTime.split(':');
+      OFFhour = parseInt(OFFarr[0]);
+      OFFmin = parseInt(OFFarr[1]);
+      console.log(OFFhour);
+      console.log(OFFmin);
+      ws.send(JSON.stringify({'id': 13, 'hour': OFFhour, 'min' : OFFmin}));
+    }
+
+
+    getInitState('buttonLED', 'button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7');
+
+
+  </script>
 
   </body>
 

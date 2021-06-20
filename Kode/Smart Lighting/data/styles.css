@@ -4,7 +4,6 @@
        url('walter-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-
 }
 
 /* This is the body of the website, being applied to everything */
@@ -36,48 +35,155 @@ body  {
 }
 
 /* Applies to the top, duh */
-.top  {
+.middlemid > label  {
   font-family: arial;
-  font-size: 24px;
-
-  margin: 35px;
+  display: block;
+  font-size: 40px;
+  margin: 100px;
+}
+input, label  {
+  margin: .2rem 0;
 }
 
 /* Applies to the different middle sections */
 .middletop  {
   font-family: arial;
-  font-size: 50px;
+  font-size: 40px;
 
   margin: 75px;
 }
 
+.buttonMatrix1:active{
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+.buttonMatrix2:active{
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+.buttonMatrix3:active{
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+.buttonMatrix4:active{
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+.buttonMatrix5:active{
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+.buttonMatrix6:active{
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+.buttonMatrix7:active{
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+
 .button1 {
-  background-color: navajowhite;
+  background-color: LawnGreen;
   font-size: 25px;
   height: 80px;
   width: 80px;
   border-radius: 50%;
+  margin: 30px;
+}
+.button1:active{
+  background-color: #3e8e41;
+  transform: translateY(4px);
 }
 
 .middlemid  {
   font-family: arial;
-  font-size: 50px;
+  font-size: 40px;
 
-  margin: 75px;
+  margin-bottom: 150px;
+}
+
+/* A lot of slider stuff, dont know what half of it does but it works :) */
+.slider {
+  -webkit-appearance: none;
+  width: 45%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
 }
 
 .middlebottom  {
   font-family: arial;
-  font-size: 50px;
+  font-size: 40px;
+  margin-bottom: 75px;
+}
 
-  margin: 75px;
+.middlebottom > button  {
+  background-color: grey;
+  font-size: 25px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  margin: 20px;
 }
 /* /////////////////////////////////////// */
 
 /* Applies to the bottom, duh */
 .bottom  {
   font-family: arial;
-  font-size: 50px;
+  font-size: 20px;
 
   margin: 75px;
+}
+
+label {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+    margin: .4rem;
+}
+
+.config-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* This applies to all divs in the flex container */
+.config-container > div {
+  text-align: center;
+}
+
+.config-title  {
+  font-family: 'walterregular';
+  font-size: 60px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
