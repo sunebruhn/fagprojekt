@@ -5,7 +5,7 @@
 #include <FastLED.h>
 
 #define NUMPIXELS  6
-#define BRIGNTNESS 255
+#define BRIGNTNESS 128
 
 enum lampMode{UNIFORM, SWIPE, COLORFLOW, TRON, HEART, RAINBOW, RANDOMLIGHTS, CIRCLE};
 
